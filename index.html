@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAGMO | Digitalización de Procesos</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/"
+      }
+    }
+    </script>
+
+    <script>
+      // Custom Tailwind theme configuration
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': {
+                DEFAULT: '#0061A1', // Azul medio
+                light: '#007BC0',   // Azul claro
+                dark: '#0B3958',    // Azul oscuro
+              },
+              'secondary': {
+                DEFAULT: '#00C4C4', // Cian/Aqua
+                dark: '#00A0A0',    // Cian oscuro para hover
+              },
+              'background': '#FFFFFF', // Fondo principal blanco
+              'surface': '#F8FAFC',    // Fondo para secciones (slate-50)
+              'subtle': '#475569',     // Texto secundario (slate-600)
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+            font-size: 140%;
+        }
+        body {
+            background-color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            color: #0B3958;
+            overflow-x: hidden;
+        }
+        .phone-mockup {
+            width: 12rem; /* Was 15rem */
+            /* height: 24rem; --- REMOVED to allow aspect-ratio to control height */
+            background: #1a1a1a;
+            border-radius: 1.8rem; /* Was 2.2rem */
+            padding: 0.4rem; /* Was 0.5rem */
+            box-shadow: 0 1rem 2rem -0.5rem rgba(0, 0, 0, 0.4), inset 0 0 0 0.1rem rgba(255, 255, 255, 0.05); /* Adjusted shadow */
+            margin: 0 auto;
+            position: relative;
+        }
+        .phone-screen {
+            background: #000;
+            width: 100%;
+            aspect-ratio: 9 / 19.5; /* Simulates a modern phone screen, like iPhone X/11/12/13 */
+            border-radius: 1.4rem; /* Was 1.7rem */
+            overflow: hidden;
+            position: relative;
+        }
+        .phone-screen iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            transform: scale(1.1); /* Zoom in to fill screen and hide letterboxing */
+        }
+        .phone-camera {
+            position: absolute;
+            top: 0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0.75rem;
+            height: 0.75rem;
+            background-color: #111;
+            border-radius: 50%;
+            z-index: 20;
+            border: 1px solid #333;
+        }
+        /* Animation for sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(1.25rem); /* 20px */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(0.625rem); } /* 10px */
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .text-shadow-sm {
+            text-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.3); /* 1px 3px */
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
