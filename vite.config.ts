@@ -2,9 +2,9 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// GitHub Pages configuration for PRGAMO app
+// Optimized Vite configuration for Netlify deployment
 export default defineConfig({
-  base: '/PRGAMO/', // Importante: nombre del repositorio
+  base: '/', // Netlify usa root path
   server: {
     port: 8080,
     host: '0.0.0.0',
@@ -18,5 +18,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+      mangle: true,
+    },
   }
 });
