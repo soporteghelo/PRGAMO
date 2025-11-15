@@ -77,8 +77,14 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="relative container mx-auto px-6 mt-3 md:mt-4 flex items-center justify-center">
-          {/* Botones de navegación eliminados para versión simplificada */}
-          <div className="phone-mockup relative z-20">
+            <button 
+                onClick={handlePrev} 
+                aria-label="Anterior" 
+                className="absolute left-0 z-30 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 transition-transform hover:scale-110 disabled:opacity-50 border border-white/50">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            
+            <div className="phone-mockup relative z-20">
                 <div className="phone-screen">
                     <div className="phone-camera"></div>
                     {loading && (
@@ -129,7 +135,13 @@ const Hero: React.FC = () => {
                 </div>
             </div>
 
-            {/* Segundo botón eliminado */}
+            
+            <button 
+                onClick={handleNext} 
+                aria-label="Siguiente" 
+                className="absolute right-0 z-30 bg-white/30 hover:bg-white/50 text-white rounded-full p-2 transition-transform hover:scale-110 disabled:opacity-50 border border-white/50">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </button>
         </div>
         <div className="relative text-center mt-4">
           <h3 key={currentTitle} className="text-base md:text-lg font-extrabold text-white animate-fade-in text-shadow-sm">
