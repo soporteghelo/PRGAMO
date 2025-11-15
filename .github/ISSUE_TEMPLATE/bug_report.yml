@@ -1,0 +1,70 @@
+name: Bug Report
+description: File a bug report
+title: "[BUG]: "
+labels: ["bug", "triage"]
+assignees:
+  - soporteghelo
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar este bug! Por favor completa la información a continuación.
+
+  - type: input
+    id: contact
+    attributes:
+      label: Información de contacto
+      description: ¿Cómo podemos contactarte si necesitamos más información?
+      placeholder: ej. email@example.com
+    validations:
+      required: false
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: ¿Qué pasó?
+      description: Describe también lo que esperabas que pasara.
+      placeholder: Describe el bug...
+      value: "¡Un bug ocurrió!"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: Versión
+      description: ¿Qué versión de nuestro software estás usando?
+      options:
+        - 1.0.x (Default)
+        - 1.1.x (Beta)
+        - 1.2.x (Alpha)
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: ¿En qué navegadores estás viendo el problema?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs relevantes
+      description: Por favor copia y pega cualquier log relevante. Se formateará automáticamente como código.
+      render: shell
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Términos y condiciones
+      description: Al enviar este issue, aceptas seguir nuestro código de conducta.
+      options:
+        - label: Acepto seguir el código de conducta de este proyecto
+          required: true
