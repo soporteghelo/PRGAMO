@@ -2,9 +2,9 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Optimized Vite configuration for Netlify deployment
+// Optimized Vite configuration for GitHub Pages deployment
 export default defineConfig({
-  base: '/', // Netlify usa root path
+  base: '/PRGAMO/', // GitHub Pages usa el nombre del repositorio
   server: {
     port: 8080,
     host: '0.0.0.0',
