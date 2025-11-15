@@ -1,4 +1,5 @@
 import React from 'react';
+// Fondo aplicado por el contenedor padre
 
 const industriesData = [
   {
@@ -34,28 +35,31 @@ const industriesData = [
 ];
 
 const IndustryCard: React.FC<{ name: string; description: string; icon: string }> = ({ name, description, icon }) => (
-  <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1">
-    <div className="text-4xl mb-4">{icon}</div>
-    <h3 className="text-xl font-bold text-primary-dark mb-2">{name}</h3>
-    <p className="text-subtle">{description}</p>
+  <div className="bg-white p-4 rounded-lg shadow-md border border-gray-100 hover:shadow-lg hover:border-primary transition-all duration-300">
+    <div className="text-2xl mb-2">{icon}</div>
+    <h3 className="text-base font-semibold text-primary-dark mb-1 leading-tight">{name}</h3>
+    <p className="text-xs text-subtle leading-snug">{description}</p>
   </div>
 );
 
 const Industries: React.FC = () => {
   return (
-    <section id="industries" className="bg-surface py-20 md:py-28">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider">Soluciones por Industria</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-primary-dark mt-2 mb-4">
-            Adaptable a las Exigencias de tu Sector
+    <section
+      id="industries"
+      className="relative min-h-screen flex flex-col justify-center bg-cover bg-center bg-primary-dark py-8"
+    >
+      {/* Overlay eliminado para mostrar fondo */}
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Soluciones por Industria</span>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-white mt-2 mb-3 leading-tight">
+            Adaptable a tu Sector
           </h2>
-          <p className="text-lg text-subtle">
-            PRAGMO es una plataforma flexible que se ajusta a los procesos y regulaciones específicas de tu industria, sin importar la complejidad.
+          <p className="text-sm text-gray-200 leading-snug">
+            PRAGMO se ajusta a procesos y regulaciones específicas, sin importar la complejidad.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 max-w-5xl mx-auto">
           {industriesData.map((industry, index) => (
             <IndustryCard key={index} {...industry} />
           ))}

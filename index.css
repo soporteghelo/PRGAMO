@@ -1,4 +1,63 @@
 /* Additional custom styles for PRGAMO app */
 /* Note: Main styles are handled by Tailwind CSS CDN and inline styles in index.html */
 
-/* You can add any additional custom CSS here if needed */
+/* Line clamp utility for text truncation */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Smooth transitions for carousel */
+.carousel-enter {
+  opacity: 0;
+  transform: translateX(100px) scale(0.95);
+}
+
+.carousel-enter-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition: all 300ms ease-out;
+}
+
+.carousel-exit {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.carousel-exit-active {
+  opacity: 0;
+  transform: translateX(-100px) scale(0.95);
+  transition: all 300ms ease-in;
+}
+
+/* Smooth scrolling for the entire app */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}

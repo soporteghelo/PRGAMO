@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useBackground } from '../context/BackgroundContext';
+// Fondo dado por wrapper
 
 const faqData = [
   {
@@ -54,7 +54,6 @@ const FaqItem: React.FC<{ faq: typeof faqData[0]; isOpen: boolean; onClick: () =
 // FIX: The component was truncated. I have completed the implementation.
 const FAQ: React.FC = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
-    const backgroundUrl = useBackground();
 
     const handleToggle = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -62,11 +61,10 @@ const FAQ: React.FC = () => {
 
     return (
         <section 
-            id="faq" 
-            className="py-20 md:py-28 bg-cover bg-center bg-primary-dark relative"
-            style={backgroundUrl ? { backgroundImage: `url('${backgroundUrl}')` } : {}}
+          id="faq" 
+          className="py-20 md:py-28 bg-cover bg-center bg-primary-dark relative"
         >
-            <div className="absolute inset-0 bg-primary-dark/90 backdrop-blur-sm"></div>
+            {/* Overlay eliminado para mostrar fondo */}
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <span className="text-secondary font-semibold uppercase tracking-wider">PREGUNTAS FRECUENTES</span>

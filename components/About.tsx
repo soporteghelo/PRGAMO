@@ -32,8 +32,9 @@ const WhyPragmo: React.FC = () => {
   ];
 
   return (
-    <section id="why-pragmo" className="bg-white py-12 md:py-16">
-      <div className="container mx-auto px-6">
+    <section id="why-pragmo" className="bg-cover bg-center bg-primary-dark py-12 md:py-16">
+      {/* Overlay eliminado para mostrar fondo */}
+      <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-12">
           {/* Columna de la imagen */}
           <div className="lg:w-5/12 w-full">
@@ -47,11 +48,11 @@ const WhyPragmo: React.FC = () => {
           </div>
           {/* Columna del texto */}
           <div className="lg:w-7/12 w-full flex flex-col justify-center">
-            <span className="text-primary font-semibold uppercase tracking-wider text-sm">TECNOLOGÍA DE CONFIANZA GLOBAL</span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-primary-dark mt-2 mb-3">
+            <span className="text-white font-semibold uppercase tracking-wider text-sm">TECNOLOGÍA DE CONFIANZA GLOBAL</span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-white mt-2 mb-3">
               No somos un software genérico. Somos tu aliado estratégico.
             </h2>
-            <p className="text-base text-subtle mb-6">
+            <p className="text-base text-white mb-6">
               Entendemos los desafíos globales de tu industria. Nuestra plataforma flexible se adapta a tus procesos y normativas, sin importar dónde operes.
             </p>
             <div className="space-y-5">
@@ -61,8 +62,8 @@ const WhyPragmo: React.FC = () => {
                     {feature.icon}
                   </div>
                   <div className="ml-4">
-                    <h4 className="text-lg font-bold text-primary-dark">{feature.title}</h4>
-                    <p className="text-subtle text-sm">{feature.description}</p>
+                    <h4 className="text-lg font-bold text-white">{feature.title}</h4>
+                    <p className="text-white text-sm">{feature.description}</p>
                   </div>
                 </div>
               ))}

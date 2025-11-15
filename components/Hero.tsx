@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   const { data: features, loading } = useGoogleSheetData<Feature>('Features');
   const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const backgroundUrl = useBackground();
+  // Fondo ahora se aplicará desde el contenedor padre (Section) usando alternancia.
 
   const resetTimeout = () => {
     if (timeoutRef.current) {
@@ -60,11 +60,10 @@ const Hero: React.FC = () => {
 
   return (
     <section 
-        id="hero" 
-        className="relative text-white pt-4 pb-4 md:pt-6 md:pb-6 overflow-hidden bg-cover bg-center bg-primary-dark"
-        style={backgroundUrl ? { backgroundImage: `url('${backgroundUrl}')` } : {}}
+      id="hero" 
+      className="relative text-white pt-4 pb-4 md:pt-6 md:pb-6 overflow-hidden bg-cover bg-center bg-primary-dark"
     >
-        <div className="absolute inset-0 bg-primary-dark/80 backdrop-blur-sm"></div>
+        {/* Overlay eliminado para mostrar fondo */}
 
         <div className="container mx-auto px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -78,14 +77,8 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="relative container mx-auto px-6 mt-3 md:mt-4 flex items-center justify-center">
-            <button 
-                onClick={handlePrev} 
-                aria-label="Anterior" 
-                className="absolute left-0 z-30 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 transition-transform hover:scale-110 disabled:opacity-50">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-            </button>
-            
-            <div className="phone-mockup">
+          {/* Botones de navegación eliminados para versión simplificada */}
+          <div className="phone-mockup relative z-20">
                 <div className="phone-screen">
                     <div className="phone-camera"></div>
                     {loading && (
@@ -136,25 +129,12 @@ const Hero: React.FC = () => {
                 </div>
             </div>
 
-            <button 
-                onClick={handleNext} 
-                aria-label="Siguiente" 
-                className="absolute right-0 z-30 bg-white/20 hover:bg-white/40 text-white rounded-full p-2 transition-transform hover:scale-110 disabled:opacity-50">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </button>
+            {/* Segundo botón eliminado */}
         </div>
-        <div className="relative text-center mt-2">
-             <h3 key={currentTitle} className="text-base md:text-lg font-extrabold text-white animate-fade-in text-shadow-sm h-7">
-                {currentTitle}
-            </h3>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-2">
-                <a href="#contact" className="w-full sm:w-auto bg-secondary hover:bg-secondary-dark font-bold py-2 px-5 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 text-base">
-                    Contactanos
-                </a>
-                <a href="#use-cases" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 font-bold py-2 px-5 rounded-lg border border-white/20 shadow-sm transition-all duration-300 text-base">
-                    Ver Soluciones
-                </a>
-            </div>
+        <div className="relative text-center mt-4">
+          <h3 key={currentTitle} className="text-base md:text-lg font-extrabold text-white animate-fade-in text-shadow-sm">
+            {currentTitle}
+          </h3>
         </div>
     </section>
   );

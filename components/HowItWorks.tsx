@@ -1,4 +1,5 @@
 import React from 'react';
+// Fondo controlado por wrapper
 
 interface StepProps {
   number: string;
@@ -9,27 +10,28 @@ interface StepProps {
 
 const Step: React.FC<StepProps> = ({ number, title, description, icon }) => (
   <div className="relative text-center">
-    <div className="relative w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-primary-light/10 text-primary-dark">
+    <div className="relative w-20 h-20 mx-auto mb-6 flex items-center justify-center rounded-full bg-white/20 text-white">
       {icon}
       <span className="absolute -top-2 -right-2 w-8 h-8 flex items-center justify-center rounded-full bg-secondary text-white font-bold text-sm">
         {number}
       </span>
     </div>
-    <h3 className="text-xl font-bold text-primary-dark mb-2">{title}</h3>
-    <p className="text-subtle">{description}</p>
+    <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+    <p className="text-white">{description}</p>
   </div>
 );
 
 const HowItWorks: React.FC = () => {
   return (
-    <section id="how-it-works" className="bg-white py-20 md:py-28">
-      <div className="container mx-auto px-6">
+    <section id="how-it-works" className="bg-cover bg-center bg-primary-dark py-20 md:py-28">
+      {/* Overlay eliminado para mostrar fondo */}
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider">Nuestro Proceso</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-primary-dark mt-2 mb-4">
+          <span className="text-white font-semibold uppercase tracking-wider">Nuestro Proceso</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-2 mb-4">
             Empezar es así de fácil
           </h2>
-          <p className="text-lg text-subtle">
+          <p className="text-lg text-white">
             Te acompañamos en cada paso para asegurar una transición exitosa a la gestión digital de SST.
           </p>
         </div>
