@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
     <footer className="bg-primary-dark text-gray-400 py-16">
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
             <div>
-                <a href="#hero" className="mb-4 block flex items-center space-x-3">
+                <a href="#hero" onClick={(e) => {e.preventDefault(); document.getElementById('hero')?.scrollIntoView({behavior: 'smooth'});}} className="mb-4 block flex items-center space-x-3 cursor-pointer">
                      <img src="https://www.pragmo.pe/imagenes/logan-qehs-consultores-s-a-c-logo-15102025175641.png" alt="PRAGMO Logo" className="h-10 w-auto"/>
                      <span className="font-bold text-xl text-white">PRAGMO</span>
                 </a>
@@ -24,21 +24,21 @@ const Footer: React.FC = () => {
             <div>
                 <h5 className="font-bold text-white uppercase tracking-wider mb-4">Soluciones</h5>
                 <ul className="space-y-2 text-sm">
-                    <li><a href="#solutions" className="hover:text-white">Formularios con IA</a></li>
-                    <li><a href="#solutions" className="hover:text-white">Auditorías Digitales</a></li>
-                    <li><a href="#solutions" className="hover:text-white">Gestión de Tareas</a></li>
-                    <li><a href="#solutions" className="hover:text-white">Gestión Documental (QR)</a></li>
-                    <li><a href="#solutions" className="hover:text-white">Reporte de Eventos</a></li>
+                    <li><a href="#use-cases" onClick={(e) => {e.preventDefault(); document.getElementById('use-cases')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Casos de Uso por Industria</a></li>
+                    <li><a href="#comparison" onClick={(e) => {e.preventDefault(); document.getElementById('comparison')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Comparación con Competencia</a></li>
+                    <li><a href="#hero" onClick={(e) => {e.preventDefault(); document.getElementById('hero')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Demos Interactivas</a></li>
+                    <li><a href="#roi-calculator" onClick={(e) => {e.preventDefault(); const roi = document.querySelector('[class*="ROICalculator"]'); roi?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Calculadora de ROI</a></li>
+                    <li><a href="#faq" onClick={(e) => {e.preventDefault(); document.getElementById('faq')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Preguntas Frecuentes</a></li>
                 </ul>
             </div>
             
             <div>
                 <h5 className="font-bold text-white uppercase tracking-wider mb-4">Empresa</h5>
                 <ul className="space-y-2 text-sm">
-                    <li><a href="#why-us" className="hover:text-white">Nosotros</a></li>
-                    <li><a href="#developments" className="hover:text-white">Desarrollos</a></li>
-                    <li><a href="#clients" className="hover:text-white">Clientes</a></li>
-                    <li><a href="#" className="hover:text-white">Política de Privacidad</a></li>
+                    <li><a href="#why-pragmo" onClick={(e) => {e.preventDefault(); document.getElementById('why-pragmo')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Por qué PRAGMO</a></li>
+                    <li><a href="#hero" onClick={(e) => {e.preventDefault(); document.getElementById('hero')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Características del Sistema</a></li>
+                    <li><a href="#use-cases" onClick={(e) => {e.preventDefault(); document.getElementById('use-cases')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Casos de Éxito</a></li>
+                    <li><a href="#contact" onClick={(e) => {e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Contáctanos</a></li>
                 </ul>
             </div>
             
@@ -48,11 +48,11 @@ const Footer: React.FC = () => {
                     <li className="flex items-center">
                         <span className="mr-2 opacity-70">📍</span> Lima, Perú
                     </li>
-                    <li className="flex items-center">
-                        <span className="mr-2 opacity-70">✉️</span> hola@pragmo.pe
+                    <li className="flex items-center cursor-pointer hover:text-white" onClick={() => window.open('mailto:app@loganqehs.com', '_blank')}>
+                        <span className="mr-2 opacity-70">✉️</span> app@loganqehs.com
                     </li>
-                    <li className="flex items-center">
-                        <span className="mr-2 opacity-70">📞</span> (+51) 987 654 321
+                    <li className="flex items-center cursor-pointer hover:text-white" onClick={() => window.open('https://wa.me/51983113150?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20PRAGMO', '_blank')}>
+                        <span className="mr-2 opacity-70">📞</span> (+51) 983 113 150
                     </li>
                 </ul>
                 <div className="flex space-x-4 mt-6">
@@ -65,6 +65,28 @@ const Footer: React.FC = () => {
                     <SocialLink href="https://www.instagram.com/pragmo.digital/">
                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.957-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.957-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.067-.06-1.407-.06-4.123v-.08c0-2.643.012-2.957.06-4.043.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 013.45 2.525c.636-.247 1.363-.416 2.427-.465C7.03 2.013 7.384 2 9.815 2h2.5zm-2.5 10a4 4 0 100-8 4 4 0 000 8zm0-6.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm5.5 1.5a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clipRule="evenodd" /></svg>
                     </SocialLink>
+                </div>
+            </div>
+        </div>
+        
+        
+        {/* Brand Attribution within Footer */}
+        <div className="bg-white border-t border-gray-200 mt-8 pt-8 pb-6">
+            <div className="container mx-auto px-6">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-gray-600">
+                    <span className="text-sm">PRAGMO es una marca de</span>
+                    <a 
+                        href="https://www.loganqehs.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="hover:opacity-80 transition-opacity duration-300"
+                    >
+                        <img 
+                            src="https://www.loganqehs.com/imagenes/logan-qehs-logo-05102023094955.png" 
+                            alt="LOGAN QEHS" 
+                            className="h-24 w-auto"
+                        />
+                    </a>
                 </div>
             </div>
         </div>
