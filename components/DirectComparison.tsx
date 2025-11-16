@@ -70,36 +70,37 @@ const DirectComparison: React.FC = () => {
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-primary text-sm font-semibold tracking-wide uppercase">
+        <div className="text-center mb-12 px-4">
+          <span className="text-primary text-xs sm:text-sm font-semibold tracking-wide uppercase">
             COMPARACIÓN DIRECTA
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mt-4 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mt-3 mb-4 leading-tight">
             ¿Por qué PRAGMO es la <span className="text-primary">Mejor Opción</span>?
           </h2>
-          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-text-secondary max-w-3xl mx-auto">
             Comparamos PRAGMO punto por punto contra las principales alternativas del mercado. 
             Los resultados hablan por sí solos.
           </p>
         </div>
 
         {/* Comparison Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 px-4">
           {[
             { id: 'features', label: '⚡ Características', icon: '⚡' },
             { id: 'pricing', label: '💰 Precios', icon: '💰' },
-            { id: 'support', label: '🛠️ Soporte', icon: '🛠️' }
+            { id: 'support', label: '🔠️ Soporte', icon: '🔠️' }
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base ${
                 activeTab === tab.id
                   ? 'bg-primary text-white shadow-lg scale-105'
                   : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
               }`}
             >
-              <span>{tab.icon}</span>
+              <span className="text-sm sm:text-base">{tab.icon}</span>
+              <span className="hidden xs:inline sm:inline text-xs sm:text-sm">{tab.label.split(' ')[1]}</span>
               <span className="hidden sm:inline">{tab.label}</span>
             </button>
           ))}
@@ -114,50 +115,50 @@ const DirectComparison: React.FC = () => {
                   <h3 className="text-xl font-bold text-white">{category.category}</h3>
                 </div>
                 
-                <div className="p-6">
+                <div className="p-3 sm:p-6">
                   <div className="overflow-x-auto">
-                    <table className="w-full">
+                    <table className="w-full min-w-full">
                       <thead>
                         <tr className="border-b">
-                          <th className="text-left py-3 px-4 font-semibold text-gray-700">Característica</th>
-                          <th className="text-center py-3 px-4 font-semibold text-primary">PRAGMO</th>
-                          <th className="text-center py-3 px-4 font-semibold text-gray-600">Competidor A</th>
-                          <th className="text-center py-3 px-4 font-semibold text-gray-600">Competidor B</th>
+                          <th className="text-left py-2 sm:py-3 px-2 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Característica</th>
+                          <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-semibold text-primary text-xs sm:text-sm">PRAGMO</th>
+                          <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-semibold text-gray-600 text-xs sm:text-sm">Comp. A</th>
+                          <th className="text-center py-2 sm:py-3 px-2 sm:px-4 font-semibold text-gray-600 text-xs sm:text-sm">Comp. B</th>
                         </tr>
                       </thead>
                       <tbody>
                         {category.features.map((feature, featureIndex) => (
                           <tr key={featureIndex} className="border-b hover:bg-gray-50">
-                            <td className="py-4 px-4 font-medium">{feature.name}</td>
-                            <td className="text-center py-4 px-4">
+                            <td className="py-3 sm:py-4 px-2 sm:px-4 font-medium text-xs sm:text-sm">{feature.name}</td>
+                            <td className="text-center py-3 sm:py-4 px-2 sm:px-4">
                               {feature.pragmo ? (
-                                <span className="inline-flex items-center justify-center w-6 h-6 bg-green-500 text-white rounded-full">
+                                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-green-500 text-white rounded-full text-xs">
                                   ✓
                                 </span>
                               ) : (
-                                <span className="inline-flex items-center justify-center w-6 h-6 bg-red-500 text-white rounded-full">
+                                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-red-500 text-white rounded-full text-xs">
                                   ✗
                                 </span>
                               )}
                             </td>
-                            <td className="text-center py-4 px-4">
+                            <td className="text-center py-3 sm:py-4 px-2 sm:px-4">
                               {feature.competitor1 ? (
-                                <span className="inline-flex items-center justify-center w-6 h-6 bg-green-500 text-white rounded-full">
+                                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-green-500 text-white rounded-full text-xs">
                                   ✓
                                 </span>
                               ) : (
-                                <span className="inline-flex items-center justify-center w-6 h-6 bg-red-500 text-white rounded-full">
+                                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-red-500 text-white rounded-full text-xs">
                                   ✗
                                 </span>
                               )}
                             </td>
-                            <td className="text-center py-4 px-4">
+                            <td className="text-center py-3 sm:py-4 px-2 sm:px-4">
                               {feature.competitor2 ? (
-                                <span className="inline-flex items-center justify-center w-6 h-6 bg-green-500 text-white rounded-full">
+                                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-green-500 text-white rounded-full text-xs">
                                   ✓
                                 </span>
                               ) : (
-                                <span className="inline-flex items-center justify-center w-6 h-6 bg-red-500 text-white rounded-full">
+                                <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-red-500 text-white rounded-full text-xs">
                                   ✗
                                 </span>
                               )}
@@ -306,15 +307,15 @@ const DirectComparison: React.FC = () => {
         )}
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-primary to-primary-light p-8 rounded-2xl text-white max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+        <div className="text-center mt-12 sm:mt-16 px-4">
+          <div className="bg-gradient-to-r from-primary to-primary-light p-6 sm:p-8 rounded-2xl text-white max-w-4xl mx-auto">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 leading-tight">
               ¿Listo para Elegir la Mejor Opción?
             </h3>
-            <p className="text-lg mb-6 opacity-90">
+            <p className="text-sm sm:text-lg mb-4 sm:mb-6 opacity-90">
               Comprueba por ti mismo por qué PRAGMO es la elección de las empresas más exigentes
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-3 sm:gap-4 justify-center">
               <button 
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
@@ -322,7 +323,7 @@ const DirectComparison: React.FC = () => {
                     contactSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                className="bg-white text-primary px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-sm sm:text-base"
               >
                 Comparar con Mi Solución Actual
               </button>
@@ -330,7 +331,7 @@ const DirectComparison: React.FC = () => {
                 onClick={() => {
                   window.open('https://wa.me/51983113140?text=Hola,%20me%20interesa%20solicitar%20una%20demo%20personalizada%20de%20PRAGMO%20para%20mi%20empresa', '_blank');
                 }}
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors"
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors text-sm sm:text-base"
               >
                 Solicitar Demo Personalizada
               </button>

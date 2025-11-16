@@ -89,7 +89,7 @@ const Header: React.FC = () => {
           <img className="h-10" src="https://www.pragmo.pe/imagenes/logan-qehs-consultores-s-a-c-logo-15102025175641.png" alt="PRAGMO Logo" />
           <span className="font-bold text-xl text-primary-dark">PRAGMO</span>
         </a>
-        <nav className="hidden lg:flex items-center font-medium space-x-4 xl:space-x-6">
+        <nav className="hidden lg:flex items-center font-medium space-x-3 xl:space-x-6">
           {navLinks.map(link => (
             <a 
               key={link.href} 
@@ -97,16 +97,17 @@ const Header: React.FC = () => {
               onClick={(e) => handleNavClick(e, link.href)}
               className={linkClasses(link.href)}
             >
-              {link.label}
+              <span className="text-sm xl:text-base">{link.label}</span>
             </a>
           ))}
           <div className="relative" ref={contactRef}>
             <button
               onClick={() => setIsContactOpen(!isContactOpen)}
-              className="bg-secondary text-white font-bold py-2 px-5 rounded-lg hover:bg-secondary-dark transition duration-300 flex items-center"
+              className="bg-secondary text-white font-bold py-2 px-3 xl:px-5 rounded-lg hover:bg-secondary-dark transition duration-300 flex items-center text-sm xl:text-base"
             >
-              Contactar a Ventas
-              <svg className={`w-4 h-4 ml-2 transform transition-transform duration-200 ${isContactOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              <span className="hidden xl:inline">Contactar a Ventas</span>
+              <span className="xl:hidden">Contactar</span>
+              <svg className={`w-4 h-4 ml-1 xl:ml-2 transform transition-transform duration-200 ${isContactOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             {isContactOpen && (
               <div className="absolute right-0 mt-2 w-60 bg-white rounded-lg shadow-xl py-1 z-50 border border-gray-200 animate-fade-in">
@@ -126,34 +127,34 @@ const Header: React.FC = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="lg:hidden bg-white">
-          <nav className="px-2 pt-2 pb-4 space-y-2 sm:px-3 flex flex-col items-center text-gray-600 font-medium">
+        <div className="lg:hidden bg-white shadow-lg">
+          <nav className="px-4 pt-3 pb-4 space-y-3 flex flex-col text-gray-600 font-medium">
             {navLinks.map(link => (
-              <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="block py-2 px-4 text-sm hover:text-primary">{link.label}</a>
+              <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="block py-3 px-2 text-base hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">{link.label}</a>
             ))}
-            <div className="border-t w-full my-2"></div>
+            <div className="border-t border-gray-200 my-3"></div>
              <a 
                 href={whatsappUrl1}
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-full text-center bg-secondary text-white font-bold py-2 px-4 rounded-lg hover:bg-secondary-dark transition duration-300"
+                className="w-full text-center bg-secondary text-white font-bold py-3 px-4 rounded-lg hover:bg-secondary-dark transition duration-300 text-sm"
              >
-                Contactar Asesor 1
+                📱 Contactar Asesor 1
              </a>
               <a 
                 href={whatsappUrl2}
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-full text-center bg-teal-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-700 transition duration-300"
+                className="w-full text-center bg-teal-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-teal-700 transition duration-300 text-sm"
              >
-                Contactar Asesor 2
+                📱 Contactar Asesor 2
              </a>
              <a 
                 href="#contact" 
                 onClick={(e) => handleNavClick(e, '#contact')} 
-                className="w-full text-center bg-gray-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300"
+                className="w-full text-center bg-gray-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-700 transition duration-300 text-sm"
             >
-                Agendar Demo (Formulario)
+                📋 Agendar Demo (Formulario)
             </a>
           </nav>
         </div>

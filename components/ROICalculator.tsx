@@ -61,28 +61,28 @@ const ROICalculator: React.FC = () => {
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <span className="text-primary text-sm font-semibold tracking-wide uppercase">
+        <div className="text-center mb-6 sm:mb-8 px-4">
+          <span className="text-primary text-xs sm:text-sm font-semibold tracking-wide uppercase">
             CALCULADORA DE ROI
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary-dark mt-2 mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-dark mt-2 mb-3 sm:mb-4 leading-tight">
             Descubre Cuánto Puedes <span className="text-primary">Ahorrar</span>
           </h2>
-          <p className="text-base text-text-secondary max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto">
             Calcula el retorno de inversión específico para tu empresa.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto px-4">
           {/* Input Panel */}
-          <div className="bg-white rounded-lg shadow-md p-5">
-            <h3 className="text-lg font-bold text-primary-dark mb-4">
+          <div className="bg-white rounded-lg shadow-md p-4 sm:p-5">
+            <h3 className="text-base sm:text-lg font-bold text-primary-dark mb-3 sm:mb-4">
               Datos de tu Empresa
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
                   Número de Empleados
                 </label>
                 <input
@@ -91,11 +91,11 @@ const ROICalculator: React.FC = () => {
                   max="500"
                   value={inputs.employees}
                   onChange={(e) => handleInputChange('employees', parseInt(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                 />
-                <div className="flex justify-between text-sm text-gray-500 mt-1">
+                <div className="flex justify-between text-xs sm:text-sm text-gray-500 mt-1">
                   <span>10</span>
-                  <span className="font-bold text-primary">{inputs.employees}</span>
+                  <span className="font-bold text-primary text-sm sm:text-base">{inputs.employees}</span>
                   <span>500+</span>
                 </div>
               </div>
@@ -160,15 +160,15 @@ const ROICalculator: React.FC = () => {
           </div>
 
           {/* Results Panel */}
-          <div className="bg-gradient-to-br from-primary to-primary-dark rounded-lg shadow-md p-5 text-white">
-            <h3 className="text-lg font-bold mb-4">
+          <div className="bg-gradient-to-br from-primary to-primary-dark rounded-lg shadow-md p-4 sm:p-5 text-white">
+            <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
               Tu Análisis de ROI
             </h3>
 
-            <div className="space-y-4">
-              <div className="bg-white/10 rounded-lg p-3">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="bg-white/10 rounded-lg p-2 sm:p-3">
                 <div className="text-xs opacity-80 mb-1">Costo Actual (Mensual)</div>
-                <div className="text-lg font-bold">
+                <div className="text-base sm:text-lg font-bold">
                   ${results.currentMonthlyCost.toFixed(0)}
                 </div>
               </div>
@@ -194,16 +194,16 @@ const ROICalculator: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white/10 rounded-lg p-3 text-center">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                <div className="bg-white/10 rounded-lg p-2 sm:p-3 text-center">
                   <div className="text-xs opacity-80 mb-1">ROI</div>
-                  <div className="text-base font-bold">
+                  <div className="text-sm sm:text-base font-bold">
                     {results.roiPercentage.toFixed(0)}%
                   </div>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3 text-center">
+                <div className="bg-white/10 rounded-lg p-2 sm:p-3 text-center">
                   <div className="text-xs opacity-80 mb-1">Tiempo ROI</div>
-                  <div className="text-base font-bold">
+                  <div className="text-sm sm:text-base font-bold">
                     {results.timeToROI.toFixed(1)} meses
                   </div>
                 </div>
@@ -215,12 +215,12 @@ const ROICalculator: React.FC = () => {
         </div>
 
         {/* Bottom insights */}
-        <div className="mt-6 text-center">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 max-w-3xl mx-auto">
-            <h4 className="text-sm font-bold text-blue-900 mb-1">
+        <div className="mt-4 sm:mt-6 text-center px-4">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 max-w-3xl mx-auto">
+            <h4 className="text-xs sm:text-sm font-bold text-blue-900 mb-1 sm:mb-2">
               💡 Insight Personalizado
             </h4>
-            <p className="text-blue-800 text-sm">
+            <p className="text-blue-800 text-xs sm:text-sm leading-relaxed">
               Con {inputs.employees} empleados realizando {inputs.inspectionsPerMonth} inspecciones mensuales, 
               PRAGMO puede generar ahorros de <strong>${results.annualSavings.toFixed(0)} anuales</strong>, 
               pagándose solo en <strong>{results.timeToROI.toFixed(1)} meses</strong>.

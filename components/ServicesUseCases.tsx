@@ -107,32 +107,32 @@ const ServicesUseCases: React.FC = () => {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <span className="text-primary text-sm font-semibold tracking-wide uppercase">
+        <div className="text-center mb-6 px-4 sm:mb-8">
+          <span className="text-primary text-xs sm:text-sm font-semibold tracking-wide uppercase">
             SERVICIOS Y CASOS DE USO
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary-dark mt-3 mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-dark mt-2 sm:mt-3 mb-3 sm:mb-4 leading-tight">
             Soluciones Completas para tu <span className="text-primary">Industria</span>
           </h2>
-          <p className="text-base text-text-secondary max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base text-text-secondary max-w-3xl mx-auto">
             Desde servicios básicos hasta casos específicos de implementación real. 
             Descubre cómo PRAGMO se adapta perfectamente a tu sector.
           </p>
         </div>
 
         {/* Services Overview */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10 px-4">
           {services.map((service, index) => (
             <div 
               key={index}
-              className={`bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border-2 ${
+              className={`bg-white rounded-xl p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border-2 ${
                 activeService === index ? 'border-primary' : 'border-transparent hover:border-primary/30'
               }`}
               onClick={() => setActiveService(index)}
             >
-              <div className="text-3xl mb-3">{service.icon}</div>
-              <h3 className="text-lg font-bold text-primary-dark mb-2">{service.title}</h3>
-              <p className="text-gray-600 text-sm mb-3">{service.description}</p>
+              <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">{service.icon}</div>
+              <h3 className="text-base sm:text-lg font-bold text-primary-dark mb-2">{service.title}</h3>
+              <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">{service.description}</p>
               
               <div className="space-y-1 mb-3">
                 {service.features.map((feature, idx) => (
@@ -163,63 +163,64 @@ const ServicesUseCases: React.FC = () => {
           </div>
 
           {/* Industry Tabs */}
-          <div className="flex flex-wrap border-b">
+          <div className="flex flex-wrap border-b overflow-x-auto">
             {industries.map((industry, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndustry(index)}
-                className={`flex items-center gap-2 px-4 py-2 font-semibold transition-all duration-300 text-sm ${
+                className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-3 font-semibold transition-all duration-300 text-xs sm:text-sm whitespace-nowrap ${
                   activeIndustry === index
                     ? 'bg-primary text-white border-b-2 border-primary-dark'
                     : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
-              <span className="text-base">{industry.icon}</span>
-              <span className="hidden sm:inline text-xs">{industry.name}</span>
+              <span className="text-sm sm:text-base">{industry.icon}</span>
+              <span className="text-xs sm:text-sm">{industry.name.split(' ')[0]}</span>
+              <span className="hidden md:inline text-xs">{industry.name}</span>
               </button>
             ))}
           </div>
 
           {/* Active Industry Content */}
-          <div className="p-4">
+          <div className="p-3 sm:p-4">
             {/* Industry Header - Compacto */}
-            <div className="text-center mb-4">
+            <div className="text-center mb-3 sm:mb-4">
               <div className="flex items-center justify-center gap-2 mb-2">
-                <span className="text-2xl">{industries[activeIndustry].icon}</span>
-                <h4 className="text-lg font-bold text-primary-dark">{industries[activeIndustry].name}</h4>
+                <span className="text-xl sm:text-2xl">{industries[activeIndustry].icon}</span>
+                <h4 className="text-base sm:text-lg font-bold text-primary-dark">{industries[activeIndustry].name}</h4>
               </div>
-              <p className="text-gray-600 mb-3 text-xs">{industries[activeIndustry].description}</p>
+              <p className="text-gray-600 mb-2 sm:mb-3 text-xs sm:text-sm">{industries[activeIndustry].description}</p>
 
             </div>
 
             {/* Case Studies */}
-            <div className="grid lg:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-3">
               {industries[activeIndustry].cases.map((useCase, index) => (
-                <div key={index} className="border-l-3 border-primary pl-3 bg-gray-50 rounded-r-lg p-3">
-                  <h5 className="text-base font-bold text-primary-dark mb-2">
+                <div key={index} className="border-l-4 border-primary pl-2 sm:pl-3 bg-gray-50 rounded-r-lg p-2 sm:p-3">
+                  <h5 className="text-sm sm:text-base font-bold text-primary-dark mb-2">
                     {useCase.title}
                   </h5>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-1 sm:space-y-2">
                     <div>
                       <span className="text-xs font-semibold text-red-700 block mb-0.5">🚨 DESAFÍO:</span>
-                      <p className="text-gray-600 text-xs">{useCase.challenge}</p>
+                      <p className="text-gray-600 text-xs leading-relaxed">{useCase.challenge}</p>
                     </div>
                     
                     <div>
                       <span className="text-xs font-semibold text-blue-700 block mb-0.5">⚡ SOLUCIÓN:</span>
-                      <p className="text-gray-600 text-xs">{useCase.solution}</p>
+                      <p className="text-gray-600 text-xs leading-relaxed">{useCase.solution}</p>
                     </div>
                     
                     <div className="bg-green-50 border border-green-200 rounded-lg p-2">
                       <span className="text-xs font-semibold text-green-800 block mb-1">✅ RESULTADO:</span>
-                      <p className="text-green-700 font-bold text-xs mb-2">{useCase.result}</p>
+                      <p className="text-green-700 font-bold text-xs mb-2 leading-relaxed">{useCase.result}</p>
                       
                       <div className="grid grid-cols-3 gap-1">
                         {Object.entries(useCase.metrics).map(([key, value]) => (
-                          <div key={key} className="text-center bg-white rounded px-1 py-0.5">
+                          <div key={key} className="text-center bg-white rounded px-1 py-1">
                             <div className="text-xs font-bold text-green-700">{value}</div>
-                            <div className="text-xs text-green-600 capitalize">{key}</div>
+                            <div className="text-xs text-green-600 capitalize truncate">{key}</div>
                           </div>
                         ))}
                       </div>
@@ -232,20 +233,20 @@ const ServicesUseCases: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-primary to-primary-light p-8 rounded-2xl text-white max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">
+        <div className="text-center mt-12 sm:mt-16 px-4">
+          <div className="bg-gradient-to-r from-primary to-primary-light p-6 sm:p-8 rounded-2xl text-white max-w-4xl mx-auto">
+            <h3 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 leading-tight">
               ¿Tu Industria Necesita una Solución Personalizada?
             </h3>
-            <p className="text-lg mb-6 opacity-90">
+            <p className="text-sm sm:text-lg mb-4 sm:mb-6 opacity-90">
               Tenemos experiencia en múltiples sectores empresariales. Conversemos sobre tu caso específico.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-3 sm:gap-4 justify-center">
               <button 
                 onClick={() => {
                   window.open('https://wa.me/51983113140?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20los%20casos%20de%20uso%20de%20PRAGMO%20para%20mi%20industria', '_blank');
                 }}
-                className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                className="bg-white text-primary px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-sm sm:text-base"
               >
                 Ver Caso de Mi Industria
               </button>
@@ -256,7 +257,7 @@ const ServicesUseCases: React.FC = () => {
                     contactSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors"
+                className="border-2 border-white text-white px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors text-sm sm:text-base"
               >
                 Solicitar Análisis Personalizado
               </button>
