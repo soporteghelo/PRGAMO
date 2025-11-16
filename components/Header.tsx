@@ -8,7 +8,7 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { href: '#use-cases', label: 'Casos de Uso' },
-    { href: '#benefits', label: 'Beneficios' },
+    { href: '#comparison', label: 'Beneficios' },
     { href: '#why-pragmo', label: 'Por qué PRAGMO' },
     { href: '#faq', label: 'FAQ' },
   ];

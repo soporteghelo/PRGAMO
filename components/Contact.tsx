@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
             Transforma tu Operación Hoy Mismo
           </h2>
           <p className="text-lg text-subtle">
-            Descubre por qué somos la plataforma de más rápido crecimiento en Perú. Agenda una demostración de 15 minutos, sin compromiso, y ve el poder de PRAGMO en acción.
+            Descubre por qué somos la plataforma de más rápido crecimiento. Agenda una demostración de 15 minutos, sin compromiso, y ve el poder de PRAGMO en acción.
           </p>
         </div>
         

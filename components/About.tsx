@@ -32,7 +32,7 @@ const WhyPragmo: React.FC = () => {
   ];
 
   return (
-    <section id="why-pragmo" className="bg-cover bg-center bg-primary-dark py-12 md:py-16">
+    <section className="bg-cover bg-center bg-primary-dark py-12 md:py-16">
       {/* Overlay eliminado para mostrar fondo */}
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-12">

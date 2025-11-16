@@ -15,7 +15,7 @@ const Integrations: React.FC = () => {
             Tú Tienes el Control Total de tu Información
           </h2>
           <p className="text-lg text-subtle">
-            PRAGMO se conecta directamente a tu cuenta corporativa de Microsoft 365 o Google Workspace. Todos tus reportes, fotos y datos se guardan en tu propio Drive o SharePoint, brindándote seguridad, soberanía y control total sobre tu activo más valioso: tu información.
+            PRAGMO se conecta directamente a tu cuenta corporativa de Microsoft 365 o Google Workspace. Todos tus reportes, fotos y datos se guardan en tu propio <strong>DRIVE</strong> o SharePoint, brindándote seguridad, soberanía y control total sobre tu activo más valioso: tu información.
           </p>
         </div>
         <div className="max-w-xl mx-auto">

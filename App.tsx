@@ -3,11 +3,13 @@ import { BackgroundProvider, useAlternatingBackground } from './context/Backgrou
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Industries from './components/Industries';
-import UseCases from './components/Services';
-import Benefits from './components/Benefits';
-import WhyPragmo from './components/About';
+import WhyChoosePRAGMO from './components/WhyChoosePRAGMO';
+import ServicesUseCases from './components/ServicesUseCases';
 import HowItWorks from './components/HowItWorks';
 import Developments from './components/Developments';
+import ROICalculator from './components/ROICalculator';
+import Testimonials from './components/Testimonials';
+import DirectComparison from './components/DirectComparison';
 import Integrations from './components/Integrations';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
@@ -60,16 +62,43 @@ const App: React.FC = () => {
     <BackgroundProvider>
       <div style={{minHeight:'100vh', background:'#fff'}}>
         <Header />
+        
+        {/* 1. Hero Section */}
         <Section index={0} id="hero"><ErrorBoundary><Hero /></ErrorBoundary></Section>
+        
+        {/* 2. Industries */}
         <Section index={1} id="industries"><ErrorBoundary><Industries /></ErrorBoundary></Section>
-        <Section index={0} id="use-cases"><ErrorBoundary><UseCases /></ErrorBoundary></Section>
-        <Section index={1} id="benefits"><ErrorBoundary><Benefits /></ErrorBoundary></Section>
+        
+        {/* 3. Why Choose PRGAMO - NUEVA SECCIÓN */}
+        <div id="why-pragmo" className="bg-white"><ErrorBoundary><WhyChoosePRAGMO /></ErrorBoundary></div>
+        
+        {/* 4. Services + Use Cases - NUEVA SECCIÓN FUSIONADA */}
+        <div id="use-cases" className="bg-gradient-to-br from-gray-50 to-blue-50"><ErrorBoundary><ServicesUseCases /></ErrorBoundary></div>
+        
+        {/* 5. How It Works */}
         <Section index={0} id="how-it-works"><ErrorBoundary><HowItWorks /></ErrorBoundary></Section>
-        <Section index={1} id="developments"><ErrorBoundary><Developments /></ErrorBoundary></Section>
-        <Section index={0} id="about"><ErrorBoundary><WhyPragmo /></ErrorBoundary></Section>
-        <Section index={1} id="integrations"><ErrorBoundary><Integrations /></ErrorBoundary></Section>
-        <Section index={0} id="faq"><ErrorBoundary><FAQ /></ErrorBoundary></Section>
-        <Section index={1} id="contact"><ErrorBoundary><Contact /></ErrorBoundary></Section>
+        
+        {/* 6. Developments */}
+        <div className="bg-white"><ErrorBoundary><Developments /></ErrorBoundary></div>
+        
+        {/* 7. ROI Calculator - NUEVA SECCIÓN */}
+        <div className="bg-gray-50"><ErrorBoundary><ROICalculator /></ErrorBoundary></div>
+        
+        {/* 8. Testimonials - MEJORADA */}
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-100"><ErrorBoundary><Testimonials /></ErrorBoundary></div>
+        
+        {/* 9. Direct Comparison - NUEVA SECCIÓN */}
+        <div id="comparison" className="bg-white"><ErrorBoundary><DirectComparison /></ErrorBoundary></div>
+        
+        {/* 10. Integrations */}
+        <div className="bg-white"><ErrorBoundary><Integrations /></ErrorBoundary></div>
+        
+        {/* 11. FAQ */}
+        <Section index={1} id="faq"><ErrorBoundary><FAQ /></ErrorBoundary></Section>
+        
+        {/* 12. Contact */}
+        <div className="bg-white"><ErrorBoundary><Contact /></ErrorBoundary></div>
+        
         <Footer />
       </div>
     </BackgroundProvider>

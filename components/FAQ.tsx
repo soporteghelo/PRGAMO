@@ -20,7 +20,7 @@ const faqData = [
   },
   {
     question: '¿Cuál es el modelo de precios?',
-    answer: 'Ofrecemos planes de suscripción flexibles basados en el número de usuarios y los módulos que necesites. Nuestro modelo es transparente y sin costos ocultos. Contáctanos para una cotización personalizada que se ajuste a tu presupuesto.'
+    answer: 'Ofrecemos planes de suscripción flexibles basados en el número de módulos que necesites. Nuestro modelo es transparente y sin costos ocultos. Contáctanos para una cotización personalizada que se ajuste a tu presupuesto.'
   },
   {
     question: '¿Qué tipo de soporte ofrecen?',

@@ -1,0 +1,226 @@
+import React, { useState } from 'react';
+
+const WhyChoosePRAGMO: React.FC = () => {
+  const [activeView, setActiveView] = useState<'comparison' | 'about'>('comparison');
+
+  const comparisons = [
+    {
+      feature: "Tiempo de Inspección",
+      traditional: "45-60 minutos",
+      pragmo: "15-20 minutos", 
+      improvement: "70% más rápido",
+      icon: "⏱️"
+    },
+    {
+      feature: "Generación de Reportes",
+      traditional: "2-3 días",
+      pragmo: "Instantáneo",
+      improvement: "100% automático",
+      icon: "📊"
+    },
+    {
+      feature: "Acceso a Datos",
+      traditional: "Solo en oficina",
+      pragmo: "Desde cualquier lugar",
+      improvement: "24/7 disponible",
+      icon: "🌐"
+    },
+    {
+      feature: "Seguimiento de Acciones",
+      traditional: "Manual y lento",
+      pragmo: "Automático con alertas",
+      improvement: "85% más eficiente",
+      icon: "🔔"
+    },
+    {
+      feature: "Cumplimiento Normativo",
+      traditional: "Verificación manual",
+      pragmo: "Compliance automático",
+      improvement: "0% errores",
+      icon: "✅"
+    },
+    {
+      feature: "Costo de Papel",
+      traditional: "$2,400 anuales",
+      pragmo: "$0",
+      improvement: "100% ahorro",
+      icon: "💰"
+    }
+  ];
+
+  const aboutStats = [
+    { number: "24/7", label: "Soporte Técnico", icon: "🛟" },
+    { number: "Cloud", label: "Tecnología Segura", icon: "☁️" },
+    { number: "Mobile", label: "App Nativa", icon: "📱" },
+    { number: "Offline", label: "Sin Internet", icon: "📶" }
+  ];
+
+  return (
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <span className="text-primary text-sm font-semibold tracking-wide uppercase">
+            ¿POR QUÉ ELEGIR PRAGMO?
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mt-4 mb-6">
+            La Diferencia es <span className="text-primary">Abrumadora</span>
+          </h2>
+          <p className="text-lg text-text-secondary max-w-3xl mx-auto mb-8">
+            Descubre por qué empresas líderes han elegido PRAGMO como su aliado 
+            estratégico en transformación digital de seguridad industrial.
+          </p>
+
+          {/* Toggle Buttons */}
+          <div className="flex justify-center gap-4 mb-12">
+            <button
+              onClick={() => setActiveView('comparison')}
+              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                activeView === 'comparison'
+                  ? 'bg-primary text-white shadow-lg'
+                  : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
+              }`}
+            >
+              📊 Ver Comparación
+            </button>
+            <button
+              onClick={() => setActiveView('about')}
+              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                activeView === 'about'
+                  ? 'bg-primary text-white shadow-lg'
+                  : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
+              }`}
+            >
+              🏆 Nuestra Historia
+            </button>
+          </div>
+        </div>
+
+        {/* Comparison View */}
+        {activeView === 'comparison' && (
+          <div className="space-y-8">
+            <div className="grid gap-6 md:gap-8">
+              {/* Header */}
+              <div className="grid grid-cols-4 gap-4 text-center font-bold text-sm md:text-base">
+                <div className="text-primary-dark">Proceso</div>
+                <div className="text-red-600">Método Tradicional</div>
+                <div className="text-primary">Con PRAGMO</div>
+                <div className="text-green-600">Mejora</div>
+              </div>
+
+              {/* Comparison rows */}
+              {comparisons.map((item, index) => (
+                <div 
+                  key={index}
+                  className="grid grid-cols-4 gap-4 items-center p-4 md:p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-primary"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{item.icon}</span>
+                    <span className="font-semibold text-primary-dark text-sm md:text-base">
+                      {item.feature}
+                    </span>
+                  </div>
+                  
+                  <div className="text-center">
+                    <span className="text-red-600 font-medium bg-red-50 px-3 py-1 rounded-full text-sm">
+                      {item.traditional}
+                    </span>
+                  </div>
+                  
+                  <div className="text-center">
+                    <span className="text-primary font-medium bg-primary/10 px-3 py-1 rounded-full text-sm">
+                      {item.pragmo}
+                    </span>
+                  </div>
+                  
+                  <div className="text-center">
+                    <span className="text-green-600 font-bold bg-green-50 px-3 py-1 rounded-full text-sm">
+                      {item.improvement}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* About View */}
+        {activeView === 'about' && (
+          <div className="space-y-16">
+            {/* Company Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {aboutStats.map((stat, index) => (
+                <div key={index} className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-4xl mb-3">{stat.icon}</div>
+                  <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
+                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mission & Vision */}
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-3xl">🎯</span>
+                  <h3 className="text-2xl font-bold text-primary-dark">Nuestra Misión</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Democratizar la digitalización de procesos empresariales, haciendo que la 
+                  gestión digital sea accesible, eficiente y poderosa para empresas de 
+                  cualquier sector y tamaño en Latinoamérica.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-3xl">🚀</span>
+                  <h3 className="text-2xl font-bold text-primary-dark">Nuestra Visión</h3>
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Ser la plataforma líder en digitalización de procesos empresariales, 
+                  transformando la manera en que las organizaciones gestionan sus 
+                  operaciones mediante tecnología inteligente y accesible.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-primary to-primary-light p-8 rounded-2xl text-white">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              ¿Listo para Ser Parte del Cambio?
+            </h3>
+            <p className="text-lg mb-6 opacity-90">
+              Únete a las empresas líderes que ya digitalizaron sus procesos operativos
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+              >
+                Ver Demo Gratuito
+              </button>
+              <button 
+                onClick={() => {
+                  window.open('https://wa.me/51983113140?text=Hola,%20me%20gustaría%20hablar%20con%20un%20experto%20sobre%20PRAGMO%20para%20mi%20empresa', '_blank');
+                }}
+                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors"
+              >
+                Hablar con Experto
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default WhyChoosePRAGMO;
