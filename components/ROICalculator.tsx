@@ -73,9 +73,9 @@ const ROICalculator: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 max-w-5xl mx-auto px-3 sm:px-4">
           {/* Input Panel */}
-          <div className="bg-white rounded-lg shadow-md p-4 sm:p-5">
+          <div className="bg-white rounded-lg shadow-md p-3 sm:p-4 lg:p-5">
             <h3 className="text-base sm:text-lg font-bold text-primary-dark mb-3 sm:mb-4">
               Datos de tu Empresa
             </h3>
@@ -160,7 +160,7 @@ const ROICalculator: React.FC = () => {
           </div>
 
           {/* Results Panel */}
-          <div className="bg-gradient-to-br from-primary to-primary-dark rounded-lg shadow-md p-4 sm:p-5 text-white">
+          <div className="bg-gradient-to-br from-primary to-primary-dark rounded-lg shadow-md p-3 sm:p-4 lg:p-5 text-white">
             <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">
               Tu Análisis de ROI
             </h3>
@@ -194,7 +194,7 @@ const ROICalculator: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+              <div className="grid grid-cols-2 gap-2">
                 <div className="bg-white/10 rounded-lg p-2 sm:p-3 text-center">
                   <div className="text-xs opacity-80 mb-1">ROI</div>
                   <div className="text-sm sm:text-base font-bold">
@@ -216,7 +216,7 @@ const ROICalculator: React.FC = () => {
 
         {/* Bottom insights */}
         <div className="mt-4 sm:mt-6 text-center px-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 max-w-3xl mx-auto">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 max-w-3xl mx-auto overflow-hidden">
             <h4 className="text-xs sm:text-sm font-bold text-blue-900 mb-1 sm:mb-2">
               💡 Insight Personalizado
             </h4>

@@ -23,9 +23,9 @@ const Step: React.FC<StepProps> = ({ number, title, description, icon }) => (
 
 const HowItWorks: React.FC = () => {
   return (
-    <section id="how-it-works" className="bg-cover bg-center bg-primary-dark py-20 md:py-28">
+    <section id="how-it-works" className="bg-cover bg-center bg-primary-dark py-12 sm:py-16 md:py-20 lg:py-28 overflow-hidden">
       {/* Overlay eliminado para mostrar fondo */}
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-white font-semibold uppercase tracking-wider">Nuestro Proceso</span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-2 mb-4">

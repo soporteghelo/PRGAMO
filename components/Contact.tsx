@@ -83,7 +83,7 @@ const Contact: React.FC = () => {
           </p>
         </div>
         
-        <div className="max-w-xl mx-auto bg-white p-8 rounded-2xl border border-gray-200 shadow-2xl">
+        <div className="max-w-xl mx-auto bg-white p-4 sm:p-6 md:p-8 rounded-2xl border border-gray-200 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-subtle mb-2">Nombres y Apellidos *</label>
@@ -94,7 +94,7 @@ const Contact: React.FC = () => {
               <input type="text" name="company" id="company" className="w-full bg-gray-50 text-primary-dark rounded-lg border-gray-300 focus:ring-secondary focus:border-secondary transition" placeholder="Nombre de tu empresa" required />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">Correo Electrónico (corporativo)</label>
+              <label htmlFor="email" className="block text-sm font-medium text-subtle mb-2">Correo Electrónico (corporativo)</label>
               <input type="email" name="email" id="email" className="w-full bg-gray-50 text-primary-dark rounded-lg border-gray-300 focus:ring-secondary focus:border-secondary transition" placeholder="tu@empresa.com" required />
             </div>
             <div>

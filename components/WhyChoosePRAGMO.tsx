@@ -188,14 +188,14 @@ const WhyChoosePRAGMO: React.FC = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-primary to-primary-light p-8 rounded-2xl text-white">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          <div className="bg-gradient-to-r from-primary to-primary-light p-4 sm:p-6 md:p-8 rounded-2xl text-white">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
               ¿Listo para Ser Parte del Cambio?
             </h3>
-            <p className="text-lg mb-6 opacity-90">
+            <p className="text-base sm:text-lg mb-6 opacity-90">
               Únete a las empresas líderes que ya digitalizaron sus procesos operativos
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-3 sm:gap-4 justify-center">
               <button 
                 onClick={() => {
                   const contactSection = document.getElementById('contact');

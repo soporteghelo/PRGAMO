@@ -272,8 +272,8 @@ const DirectComparison: React.FC = () => {
             </div>
             
             <div className="p-6">
-              <div className="overflow-x-auto">
-                <table className="w-full">
+              <div className="overflow-x-auto -mx-3 sm:-mx-6">
+                <table className="w-full min-w-[600px]">
                   <thead>
                     <tr className="border-b">
                       <th className="text-left py-3 px-4 font-semibold text-gray-700">Aspecto</th>
@@ -308,14 +308,14 @@ const DirectComparison: React.FC = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-12 sm:mt-16 px-4">
-          <div className="bg-gradient-to-r from-primary to-primary-light p-6 sm:p-8 rounded-2xl text-white max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-primary to-primary-light p-4 sm:p-6 md:p-8 rounded-2xl text-white max-w-4xl mx-auto">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 leading-tight">
               ¿Listo para Elegir la Mejor Opción?
             </h3>
             <p className="text-sm sm:text-lg mb-4 sm:mb-6 opacity-90">
               Comprueba por ti mismo por qué PRAGMO es la elección de las empresas más exigentes
             </p>
-            <div className="flex flex-col gap-3 sm:gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <button 
                 onClick={() => {
                   const contactSection = document.getElementById('contact');

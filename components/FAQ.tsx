@@ -62,16 +62,16 @@ const FAQ: React.FC = () => {
     return (
         <section 
           id="faq" 
-          className="py-20 md:py-28 bg-cover bg-center bg-primary-dark relative"
+          className="py-12 sm:py-16 md:py-20 lg:py-28 bg-cover bg-center bg-primary-dark relative overflow-hidden"
         >
             {/* Overlay eliminado para mostrar fondo */}
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="text-secondary font-semibold uppercase tracking-wider">PREGUNTAS FRECUENTES</span>
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-2 mb-4">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
+                <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
+                    <span className="text-secondary font-semibold uppercase tracking-wider text-sm">PREGUNTAS FRECUENTES</span>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 mb-4 leading-tight">
                         Resolvemos tus Dudas
                     </h2>
-                    <p className="text-lg text-gray-200">
+                    <p className="text-base sm:text-lg text-gray-200">
                         Aquí encontrarás respuestas a las preguntas más comunes sobre PRAGMO. Si no encuentras lo que buscas, no dudes en contactarnos.
                     </p>
                 </div>

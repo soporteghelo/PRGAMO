@@ -60,7 +60,7 @@ const Section: React.FC<{ index: number; id: string; children: ReactNode }> = ({
 const App: React.FC = () => {
   return (
     <BackgroundProvider>
-      <div style={{minHeight:'100vh', background:'#fff'}}>
+      <div style={{minHeight:'100vh', background:'#fff', overflowX:'hidden', width:'100%'}}>
         <Header />
         
         {/* 1. Hero Section */}

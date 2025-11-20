@@ -76,12 +76,12 @@ const Hero: React.FC = () => {
             </div>
         </div>
 
-        <div className="relative container mx-auto px-4 md:px-6 mt-4 md:mt-6 flex items-center justify-center">
+        <div className="relative container mx-auto px-4 md:px-6 mt-4 md:mt-6 flex items-center justify-center overflow-hidden">
             {/* Efectos visuales alrededor del celular - Responsivo */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
                 {/* Círculos animados - Tamaños ajustados para móvil */}
-                <div className="absolute w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 border-2 border-white/20 rounded-full animate-spin-slow"></div>
-                <div className="absolute w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 border-2 border-secondary/30 rounded-full animate-spin-reverse"></div>
+                <div className="absolute w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-96 lg:h-96 border-2 border-white/20 rounded-full animate-spin-slow"></div>
+                <div className="absolute w-28 h-28 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-72 lg:h-72 border-2 border-secondary/30 rounded-full animate-spin-reverse"></div>
                 <div className="absolute w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 border border-primary-light/40 rounded-full animate-pulse"></div>
                 
                 {/* Puntos flotantes - Ocultos en móviles muy pequeños */}

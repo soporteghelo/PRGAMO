@@ -49,10 +49,10 @@ const Industries: React.FC = () => {
       className="relative min-h-screen flex flex-col justify-center bg-cover bg-center bg-primary-dark py-8"
     >
       {/* Overlay eliminado para mostrar fondo */}
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-8">
-          <span className="text-secondary font-semibold uppercase tracking-wider text-sm">Soluciones por Industria</span>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-white mt-2 mb-3 leading-tight">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+          <span className="text-secondary font-semibold uppercase tracking-wider text-xs sm:text-sm">Soluciones por Industria</span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mt-2 mb-3 leading-tight">
             Adaptable a tu Sector
           </h2>
           <p className="text-sm text-gray-200 leading-snug">

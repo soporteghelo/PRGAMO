@@ -98,11 +98,11 @@ const UseCases: React.FC = () => {
   );
 
   return (
-    <section className="bg-white py-20 md:py-28 bg-cover bg-center">
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold uppercase tracking-wider">Casos de Uso</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-primary-dark mt-2 mb-4">
+    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-28 bg-cover bg-center overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16">
+          <span className="text-primary font-semibold uppercase tracking-wider text-sm">Casos de Uso</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary-dark mt-2 mb-4 leading-tight">
             Digitaliza Cada Rincón de tu Operación
           </h2>
           <p className="text-lg text-subtle">

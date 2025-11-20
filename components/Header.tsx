@@ -84,10 +84,10 @@ const Header: React.FC = () => {
 
   return (
     <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="flex items-center space-x-3 flex-shrink-0">
-          <img className="h-10" src="https://www.pragmo.pe/imagenes/logan-qehs-consultores-s-a-c-logo-15102025175641.png" alt="PRAGMO Logo" />
-          <span className="font-bold text-xl text-primary-dark">PRAGMO</span>
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
+        <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+          <img className="h-8 sm:h-10" src="https://www.pragmo.pe/imagenes/logan-qehs-consultores-s-a-c-logo-15102025175641.png" alt="PRAGMO Logo" />
+          <span className="font-bold text-lg sm:text-xl text-primary-dark">PRAGMO</span>
         </a>
         <nav className="hidden lg:flex items-center font-medium space-x-3 xl:space-x-6">
           {navLinks.map(link => (
@@ -110,7 +110,7 @@ const Header: React.FC = () => {
               <svg className={`w-4 h-4 ml-1 xl:ml-2 transform transition-transform duration-200 ${isContactOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             {isContactOpen && (
-              <div className="absolute right-0 mt-2 w-60 bg-white rounded-lg shadow-xl py-1 z-50 border border-gray-200 animate-fade-in">
+              <div className="absolute right-0 mt-2 w-60 bg-white rounded-lg shadow-xl py-1 z-[60] border border-gray-200 animate-fade-in">
                 <DropdownItem href={whatsappUrl1} title="Asesor de Ventas 1" number="+51 983 113 140" />
                 <div className="border-t border-gray-100"></div>
                 <DropdownItem href={whatsappUrl2} title="Asesor de Ventas 2" number="+51 973 199 953" />
@@ -127,8 +127,8 @@ const Header: React.FC = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="lg:hidden bg-white shadow-lg">
-          <nav className="px-4 pt-3 pb-4 space-y-3 flex flex-col text-gray-600 font-medium">
+        <div className="lg:hidden bg-white shadow-lg relative z-[55]">
+          <nav className="px-4 pt-3 pb-4 space-y-2 flex flex-col text-gray-600 font-medium">
             {navLinks.map(link => (
               <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="block py-3 px-2 text-base hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">{link.label}</a>
             ))}
@@ -137,7 +137,7 @@ const Header: React.FC = () => {
                 href={whatsappUrl1}
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-full text-center bg-secondary text-white font-bold py-3 px-4 rounded-lg hover:bg-secondary-dark transition duration-300 text-sm"
+                className="w-full text-center bg-secondary text-white font-semibold py-3 px-3 rounded-lg hover:bg-secondary-dark transition duration-300 text-sm"
              >
                 📱 Contactar Asesor 1
              </a>

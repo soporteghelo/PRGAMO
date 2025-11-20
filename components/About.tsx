@@ -32,10 +32,10 @@ const WhyPragmo: React.FC = () => {
   ];
 
   return (
-    <section className="bg-cover bg-center bg-primary-dark py-12 md:py-16">
+    <section className="bg-cover bg-center bg-primary-dark py-8 sm:py-12 md:py-16 overflow-hidden">
       {/* Overlay eliminado para mostrar fondo */}
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-12">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row items-stretch gap-6 sm:gap-8 lg:gap-12">
           {/* Columna de la imagen */}
           <div className="lg:w-5/12 w-full">
             <div className="rounded-2xl overflow-hidden shadow-xl h-full">
