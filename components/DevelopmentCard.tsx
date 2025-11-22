@@ -46,8 +46,8 @@ const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descrip
         {/* Smartphone Mockup - Centrado */}
         <div className="flex justify-center flex-grow items-center py-2">
           <div className="relative group-hover:scale-105 transition-transform duration-500">
-            {/* Marco del smartphone - Más compacto */}
-            <div className="relative w-28 sm:w-32 h-48 sm:h-56 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[1.2rem] p-1.5 shadow-2xl border-2 border-slate-700">
+            {/* Marco del smartphone - Altura ajustada +2% */}
+            <div className="relative w-28 sm:w-32 h-52 sm:h-60 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[1.2rem] p-1.5 shadow-2xl border-2 border-slate-700">
               {/* Notch */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-slate-900 rounded-b-lg z-10"></div>
               
@@ -64,6 +64,8 @@ const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descrip
                           allowFullScreen
                           className="w-full h-full border-0 object-cover"
                           title={Titulo}
+                          loading="lazy"
+                          style={{ imageRendering: 'crisp-edges', imageRendering: '-webkit-optimize-contrast' }}
                         ></iframe>
                       ) : (
                         <video
@@ -74,6 +76,8 @@ const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descrip
                           playsInline
                           className="w-full h-full object-cover"
                           title={Titulo}
+                          preload="metadata"
+                          style={{ imageRendering: 'crisp-edges', imageRendering: '-webkit-optimize-contrast' }}
                         ></video>
                       )
                     ) : (
@@ -81,6 +85,19 @@ const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descrip
                         src={isGoogleDriveLink(Link) ? getGoogleDriveDirectImageLink(Link) : Link}
                         alt={Titulo}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        style={{ 
+                          imageRendering: 'crisp-edges', 
+                          imageRendering: '-webkit-optimize-contrast',
+                          filter: 'contrast(1.1) brightness(1.05)',
+                          backfaceVisibility: 'hidden',
+                          transform: 'translateZ(0)'
+                        }}
+                        onLoad={(e) => {
+                          const img = e.target as HTMLImageElement;
+                          img.style.filter = 'contrast(1.1) brightness(1.05)';
+                        }}
                       />
                     )
                   ) : (
