@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const DirectComparison: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('features');
+  const [activeTab, setActiveTab] = useState('pricing');
 
   const featureComparison = [
     {
@@ -36,26 +36,81 @@ const DirectComparison: React.FC = () => {
     }
   ];
 
-  const pricingComparison = {
-    pragmo: {
-      name: "PRAGMO",
-      price: "$25/módulo/mes",
-      setup: "Por módulo - sujeto a evaluación",
-      features: ["Soporte 24/7", "Capacitación incluida", "Actualizaciones gratis"],
-      highlight: true
+  const pricingPlans = [
+    {
+      name: "BASIC",
+      price: "$50",
+      period: "/mes",
+      description: "Ideal para equipos pequeños",
+      features: [
+        "2 módulos incluidos",
+        "Hasta 8 usuarios",
+        "Funciones limitadas",
+        "Soporte por email"
+      ],
+      highlight: false,
+      color: "bg-gray-100"
     },
+    {
+      name: "STARTER", 
+      price: "$80",
+      period: "/mes",
+      description: "Perfecto para empresas en crecimiento",
+      features: [
+        "4 módulos incluidos",
+        "Hasta 25 usuarios", 
+        "Funciones ilimitadas",
+        "+$25 por módulo adicional",
+        "Soporte prioritario"
+      ],
+      highlight: true,
+      color: "bg-gradient-to-r from-primary to-primary-light"
+    },
+    {
+      name: "PRO",
+      price: "$120", 
+      period: "/mes",
+      description: "Para empresas establecidas",
+      features: [
+        "8 módulos incluidos",
+        "Hasta 100 usuarios",
+        "Funciones ilimitadas", 
+        "+$20 por módulo adicional",
+        "Capacitación incluida"
+      ],
+      highlight: false,
+      color: "bg-gray-100"
+    },
+    {
+      name: "ENTERPRISE",
+      price: "$250",
+      period: "/mes", 
+      description: "Solución completa empresarial",
+      features: [
+        "Módulos a cotizar",
+        "Hasta 200 usuarios",
+        "Funciones ilimitadas",
+        "Soporte dedicado 24/7",
+        "Desarrollos personalizados"
+      ],
+      highlight: false,
+      color: "bg-gray-100"
+    }
+  ];
+
+  const competitorComparison = {
     competitor1: {
       name: "Competidor A",
       price: "$15 por usuario",
       setup: "Por usuario/mes",
-      features: ["Máx. 10 formularios", "Soporte horario", "Capacitación extra", "Actualizaciones pagadas"],
+      features: ["Sin modo offline", "Soporte horario", "Capacitación extra", "Actualizaciones pagadas"],
       highlight: false
     },
     competitor2: {
-      name: "Competidor B",
+      name: "Competidor B", 
       price: "$20 por usuario",
       setup: "Por usuario/mes",
-      features: ["Formularios limitados", "Chat support", "Sin capacitación", "Updates anuales"],
+      features: ["Funcionalidades básicas", "Chat support", "Sin capacitación", "Updates anuales"],
       highlight: false
     }
   };
@@ -86,8 +141,8 @@ const DirectComparison: React.FC = () => {
         {/* Comparison Tabs */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 px-4">
           {[
-            { id: 'features', label: '⚡ Características', icon: '⚡' },
             { id: 'pricing', label: '💰 Precios', icon: '💰' },
+            { id: 'features', label: '⚡ Características', icon: '⚡' },
             { id: 'support', label: '🔠️ Soporte', icon: '🔠️' }
           ].map((tab) => (
             <button
@@ -176,88 +231,187 @@ const DirectComparison: React.FC = () => {
 
         {/* Pricing Comparison */}
         {activeTab === 'pricing' && (
-          <div className="space-y-6">
-            <div className="grid md:grid-cols-3 gap-4">
-              {Object.entries(pricingComparison).map(([key, plan]) => (
-              <div 
-                key={key}
-                className={`rounded-2xl shadow-xl overflow-hidden ${
-                  plan.highlight 
-                    ? 'ring-4 ring-primary transform scale-105' 
-                    : 'bg-white'
-                }`}
-              >
-                <div className={`p-4 text-center ${
-                  plan.highlight 
-                    ? 'bg-gradient-to-r from-primary to-primary-light text-white' 
-                    : 'bg-gray-50'
-                }`}>
-                  {plan.highlight && (
-                    <div className="bg-yellow-400 text-primary-dark text-xs font-bold py-1 px-2 rounded-full inline-block mb-1">
-                      MÁS POPULAR
+          <div className="space-y-8">
+            {/* Título de la sección de planes PRAGMO */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-primary-dark mb-2">Planes PRAGMO</h3>
+              <p className="text-gray-600">Elige el plan que mejor se adapte a tu empresa</p>
+            </div>
+
+            {/* Grid de planes PRAGMO */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {pricingPlans.map((plan, index) => (
+                <div 
+                  key={index}
+                  className={`rounded-2xl shadow-xl overflow-hidden bg-white ${
+                    plan.highlight 
+                      ? 'ring-4 ring-primary transform scale-105 relative' 
+                      : 'hover:shadow-2xl transition-shadow'
+                  }`}
+                >
+                  <div className={`p-6 text-center ${
+                    plan.highlight 
+                      ? 'bg-gradient-to-r from-primary to-primary-light text-white' 
+                      : 'bg-gray-50'
+                  }`}>
+                    {plan.highlight && (
+                      <div className="bg-yellow-400 text-primary-dark text-xs font-bold py-1 px-3 rounded-full inline-block mb-2">
+                        MÁS POPULAR
+                      </div>
+                    )}
+                    <h3 className={`text-xl font-bold ${plan.highlight ? 'text-white' : 'text-gray-800'}`}>
+                      {plan.name}
+                    </h3>
+                    <div className={`mt-3 ${plan.highlight ? 'text-white' : 'text-gray-600'}`}>
+                      <span className="text-3xl font-bold">{plan.price}</span>
+                      <span className="text-lg">{plan.period}</span>
                     </div>
-                  )}
-                  <h3 className={`text-lg font-bold ${plan.highlight ? 'text-white' : 'text-gray-800'}`}>
-                    {plan.name}
-                  </h3>
-                  <div className={`mt-2 ${plan.highlight ? 'text-white' : 'text-gray-600'}`}>
-                    <span className="text-2xl font-bold">{plan.price}</span>
+                    <p className={`text-sm mt-2 ${plan.highlight ? 'text-white/90' : 'text-gray-500'}`}>
+                      {plan.description}
+                    </p>
                   </div>
-                  <div className={`text-xs mt-1 ${plan.highlight ? 'text-white/80' : 'text-gray-500'}`}>
-                    Setup: {plan.setup}
-                  </div>
-                </div>
-                
-                <div className="p-4">
-                  <ul className="space-y-2">
-                    {plan.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className={`w-4 h-4 rounded-full flex items-center justify-center text-xs text-white mt-0.5 ${
-                          plan.highlight ? 'bg-primary' : 'bg-gray-400'
-                        }`}>
-                          ✓
-                        </span>
-                        <span className="text-sm text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
                   
-                  <button 
-                    onClick={() => {
-                      if (plan.highlight) {
+                  <div className="p-6">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start gap-3">
+                          <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-xs text-white mt-0.5 flex-shrink-0">
+                            ✓
+                          </span>
+                          <span className="text-sm text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <button 
+                      onClick={() => {
                         const contactSection = document.getElementById('contact');
                         if (contactSection) {
                           contactSection.scrollIntoView({ behavior: 'smooth' });
                         }
-                      }
-                    }}
-                    className={`w-full mt-6 py-3 rounded-lg font-semibold transition-colors ${
-                    plan.highlight
-                      ? 'bg-primary text-white hover:bg-primary-dark'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}>
-                    {plan.highlight ? 'Comenzar Ahora' : 'Ver Detalles'}
-                  </button>
+                      }}
+                      className={`w-full mt-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                        plan.highlight
+                          ? 'bg-primary text-white hover:bg-primary-dark transform hover:scale-105'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      {plan.highlight ? 'Comenzar Ahora' : 'Elegir Plan'}
+                    </button>
+                  </div>
                 </div>
-              </div>
               ))}
+            </div>
+
+            {/* Comparación con competidores */}
+            <div className="mt-12">
+              <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">
+                ¿Cómo se compara PRAGMO con la competencia?
+              </h3>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* Plan STARTER destacado de PRAGMO */}
+                <div className="rounded-2xl shadow-xl overflow-hidden bg-white ring-4 ring-primary">
+                  <div className="bg-gradient-to-r from-primary to-primary-light text-white p-6 text-center">
+                    <div className="bg-yellow-400 text-primary-dark text-xs font-bold py-1 px-3 rounded-full inline-block mb-2">
+                      NUESTRA RECOMENDACIÓN
+                    </div>
+                    <h3 className="text-xl font-bold">PRAGMO STARTER</h3>
+                    <div className="mt-3">
+                      <span className="text-3xl font-bold">$80</span>
+                      <span className="text-lg">/mes</span>
+                    </div>
+                    <p className="text-sm mt-2 text-white/90">
+                      Hasta 25 usuarios incluidos
+                    </p>
+                  </div>
+                  
+                  <div className="p-6">
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-xs text-white mt-0.5">✓</span>
+                        <span className="text-sm text-gray-700">4 módulos incluidos</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-xs text-white mt-0.5">✓</span>
+                        <span className="text-sm text-gray-700">Funciones ilimitadas</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-xs text-white mt-0.5">✓</span>
+                        <span className="text-sm text-gray-700">Soporte prioritario</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-xs text-white mt-0.5">✓</span>
+                        <span className="text-sm text-gray-700">Capacitación incluida</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Competidores */}
+                {Object.entries(competitorComparison).map(([key, competitor]) => (
+                  <div key={key} className="rounded-2xl shadow-xl overflow-hidden bg-white">
+                    <div className="bg-gray-50 p-6 text-center">
+                      <h3 className="text-xl font-bold text-gray-800">{competitor.name}</h3>
+                      <div className="mt-3 text-gray-600">
+                        <span className="text-3xl font-bold">{competitor.price}</span>
+                      </div>
+                      <p className="text-sm mt-2 text-gray-500">
+                        {competitor.setup}
+                      </p>
+                    </div>
+                    
+                    <div className="p-6">
+                      <ul className="space-y-3">
+                        {competitor.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start gap-3">
+                            <span className="w-5 h-5 rounded-full bg-red-500 flex items-center justify-center text-xs text-white mt-0.5">✗</span>
+                            <span className="text-sm text-gray-700">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
             
             {/* Mensaje explicativo del modelo de precios */}
-            <div className="p-4 bg-gradient-to-r from-blue-50 to-primary-light/20 rounded-lg border-l-4 border-primary">
-              <div className="flex items-start space-x-2">
+            <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-primary-light/20 rounded-xl border-l-4 border-primary">
+              <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0">
-                  <svg className="w-5 h-5 text-primary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-primary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-800 mb-1 text-sm">💡 Diferencia Clave en Nuestro Modelo de Precios</h4>
-                  <p className="text-gray-700 leading-snug text-sm">
-                    Mientras que <span className="font-semibold text-red-600">otras empresas te cobran por cada usuario</span> (costoso con equipos grandes), 
-                    <span className="font-bold text-primary"> PRAGMO te cobra por módulo funcional</span>, independientemente de cuántos usuarios lo utilicen. 
-                    <span className="font-semibold text-green-600">Esto significa ahorros significativos</span>, especialmente con muchos empleados.
-                  </p>
+                  <h4 className="font-bold text-primary text-lg mb-3">💡 ¿Por qué PRAGMO es Más Rentable?</h4>
+                  <div className="space-y-3 text-gray-700">
+                    <p className="font-medium">
+                      <span className="font-bold text-red-600">Competencia:</span> Te cobran $15-20 por cada usuario mensual
+                    </p>
+                    <p className="font-medium">
+                      <span className="font-bold text-primary">PRAGMO:</span> Precio fijo por plan con usuarios incluidos
+                    </p>
+                    <div className="bg-white p-4 rounded-lg mt-4">
+                      <h5 className="font-bold text-gray-800 mb-2">💰 Ejemplo de Ahorro:</h5>
+                      <div className="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <p className="font-semibold text-red-600">Competidor A (25 usuarios):</p>
+                          <p>25 × $15 = <span className="font-bold">$375/mes</span></p>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-primary">PRAGMO STARTER (25 usuarios):</p>
+                          <p>Plan completo = <span className="font-bold">$80/mes</span></p>
+                        </div>
+                      </div>
+                      <div className="mt-3 p-3 bg-green-100 rounded-lg">
+                        <p className="font-bold text-green-700 text-center">
+                          🎉 Ahorras $295/mes = $3,540/año con PRAGMO
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
