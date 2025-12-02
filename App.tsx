@@ -63,8 +63,8 @@ const App: React.FC = () => {
       <div style={{minHeight:'100vh', background:'#fff', overflowX:'hidden', width:'100%'}}>
         <Header />
         
-        {/* 1. Hero Section */}
-        <Section index={0} id="hero"><ErrorBoundary><Hero /></ErrorBoundary></Section>
+        {/* 1. Hero Section - Full width background */}
+        <div className="w-full"><ErrorBoundary><Hero /></ErrorBoundary></div>
         
         {/* 2. Industries */}
         <Section index={1} id="industries"><ErrorBoundary><Industries /></ErrorBoundary></Section>

@@ -61,10 +61,12 @@ const Hero: React.FC = () => {
   return (
     <section 
       id="hero" 
-      className="relative text-white pt-4 pb-4 md:pt-6 md:pb-6 overflow-hidden bg-cover bg-center bg-primary-dark"
+      className="relative text-white pt-4 pb-4 md:pt-6 md:pb-6 overflow-hidden bg-cover bg-center bg-primary-dark w-full"
     >
-        {/* Overlay eliminado para mostrar fondo */}
-
+        {/* Fondo que ocupa todo el ancho de la pantalla */}
+        <div className="absolute inset-0 bg-primary-dark w-full"></div>
+        
+        {/* Contenido con contenedor normal */}
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-lg sm:text-xl md:text-2xl xl:text-3xl font-extrabold mb-3 leading-tight text-shadow-sm px-2">

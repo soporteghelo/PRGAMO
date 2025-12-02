@@ -22,7 +22,7 @@ const Testimonials: React.FC = () => {
       position: "Directora de Operaciones",
       company: "Constructora Horizonte",
       companyLogo: "🏗️",
-      image: "https://images.unsplash.com/photo-1494790108755-2616c047d04a?w=150&h=150&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face",
       quote: "La trazabilidad que nos da PRAGMO es increíble. Cada inspección queda documentada con fotos, GPS y firmas digitales. Los auditores externos quedaron impresionados con nuestro nivel de documentación.",
       metrics: {
         reduction: "60%",
@@ -79,7 +79,10 @@ const Testimonials: React.FC = () => {
                   <img
                     src={testimonials[activeTestimonial].image}
                     alt={testimonials[activeTestimonial].name}
-                    className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-white shadow-md"
+                    className="w-16 h-16 rounded-full mx-auto mb-3 border-2 border-white shadow-md object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://ui-avatars.com/api/?name=" + encodeURIComponent(testimonials[activeTestimonial].name) + "&background=0ea5e9&color=fff&size=150";
+                    }}
                   />
                   <h4 className="text-lg font-bold">
                     {testimonials[activeTestimonial].name}
