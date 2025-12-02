@@ -7,7 +7,7 @@ const Testimonials: React.FC = () => {
     {
       name: "Carlos Mendoza",
       position: "Gerente de Seguridad",
-      company: "Minera Los Andes",
+      company: "Minería",
       companyLogo: "⛏️",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
       quote: "PRAGMO transformó completamente nuestros procesos de inspección. Hemos reducido los accidentes en un 45% y el tiempo de inspección se redujo de 60 a 18 minutos. El ROI fue evidente desde el primer mes.",
@@ -20,7 +20,7 @@ const Testimonials: React.FC = () => {
     {
       name: "María González",
       position: "Directora de Operaciones",
-      company: "Constructora Horizonte",
+      company: "Construccción",
       companyLogo: "🏗️",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face",
       quote: "La trazabilidad que nos da PRAGMO es increíble. Cada inspección queda documentada con fotos, GPS y firmas digitales. Los auditores externos quedaron impresionados con nuestro nivel de documentación.",
@@ -33,7 +33,7 @@ const Testimonials: React.FC = () => {
     {
       name: "Roberto Silva",
       position: "Jefe de Mantenimiento",
-      company: "Industrias Pacífico",
+      company: "Industrial",
       companyLogo: "🏭",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
       quote: "Antes perdíamos 3 días generando reportes manualmente. Ahora con PRAGMO, los reportes se generan automáticamente y los dashboards nos dan insights en tiempo real. Recuperamos 120 horas mensuales.",
