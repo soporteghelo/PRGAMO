@@ -3,10 +3,18 @@
 /* Global overflow prevention */
 html, body {
   overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
 }
 
 * {
   box-sizing: border-box;
+  max-width: 100vw !important;
+}
+
+#root {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
 }
 
 /* Container improvements */
@@ -162,12 +170,32 @@ section {
 
 /* Hero section improvements */
 @media (max-width: 640px) {
-  #hero .absolute {
-    display: none; /* Hide floating decorative elements on small screens */
+  /* Hide only the floating decorative circles, not the buttons */
+  #hero .absolute.inset-0 {
+    display: none;
+  }
+  
+  /* Ensure buttons and mockup are visible */
+  #hero button[aria-label="Anterior"],
+  #hero button[aria-label="Siguiente"],
+  #hero .phone-mockup {
+    display: flex !important;
   }
   
   #hero .phone-mockup {
-    transform: scale(0.8);
+    /* 🎯 CONFIGURACIÓN DE POSICIÓN EN EJE Y DEL CELULAR - Modifica este valor: */
+    transform: scale(1.76) translateY(-50px) !important;  /* 👈 Cambia -50px: negativos suben, positivos bajan */
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: auto !important;
+    max-width: 100vw !important;
+    overflow: visible !important;
+  }
+  
+  /* 🎯 CONFIGURACIÓN DE POSICIÓN EN EJE Y DEL TÍTULO - Modifica este valor: */
+  #hero h3 {
+    transform: translateY(-110px) !important;  /* 👈 Cambia -30px: negativos suben, positivos bajan */
+    position: relative !important;
   }
 }
 
@@ -222,6 +250,321 @@ section {
 /* Dark mode improvements if needed */
 @media (prefers-color-scheme: dark) {
   /* Add any dark mode specific mobile fixes here */
+}
+
+/* Additional mobile fixes for Hero section visibility */
+@media (max-width: 768px) {
+  /* Asegurar que el mockup sea visible */
+  #hero .phone-mockup {
+    position: relative !important;
+    z-index: 20 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Asegurar que videos/iframes se reproduzcan */
+  .phone-screen {
+    overflow: hidden !important;
+    background: black !important;
+  }
+  
+  .phone-screen iframe,
+  .phone-screen video,
+  .phone-screen img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Botones de navegación visibles y funcionales */
+  #hero button[aria-label="Anterior"],
+  #hero button[aria-label="Siguiente"] {
+    z-index: 100 !important;
+    display: flex !important;
+    position: absolute !important;
+  }
+  
+}
+
+/* Mejorar el diseño del mockup del celular GLOBAL */
+.phone-mockup {
+  background: linear-gradient(145deg, #f8f9fa 0%, #dee2e6 50%, #adb5bd 100%) !important;
+  border-radius: 28px !important;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1) !important;
+  border: 2px solid #495057 !important;
+  padding: 4px !important;
+  position: relative !important;
+}
+
+.phone-screen {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5) !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.phone-screen iframe,
+.phone-screen video,
+.phone-screen img {
+  border-radius: 20px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Notch más pequeño y elegante GLOBAL */
+.phone-camera {
+  width: 50px !important;
+  height: 8px !important;
+  background: linear-gradient(145deg, #1a1a1a 0%, #000 100%) !important;
+  border-radius: 10px !important;
+  position: absolute !important;
+  top: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 15 !important;
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.8),
+    0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.phone-camera::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 8px;
+  width: 3px;
+  height: 3px;
+  background: #0066cc;
+  border-radius: 50%;
+  box-shadow: 0 0 3px #0066cc;
+}
+
+.phone-camera::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  width: 2px;
+  height: 3px;
+  background: #333;
+  border-radius: 1px;
+}
+
+/* Añadir detalles realistas al celular GLOBAL */
+.phone-mockup::before {
+  content: '';
+  position: absolute;
+  top: 35%;
+  right: -1px;
+  width: 3px;
+  height: 50px;
+  background: linear-gradient(180deg, #495057 0%, #343a40 100%);
+  border-radius: 0 2px 2px 0;
+  transform: translateY(-50%);
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.phone-mockup::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: -1px;
+  width: 3px;
+  height: 30px;
+  background: linear-gradient(180deg, #495057 0%, #343a40 100%);
+  border-radius: 2px 0 0 2px;
+  transform: translateY(-50%);
+  box-shadow: -1px 0 3px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  /* Estilos específicos mobile ya aplicados arriba */
+}
+
+/* Centrar botones de navegación en vista desktop */
+@media (min-width: 769px) {
+  /* 🎯 CONFIGURACIÓN DE POSICIÓN VERTICAL DE BOTONES EN DESKTOP */
+  #hero button[aria-label="Anterior"] {
+    top: 50% !important;  /* 👈 Cambia este valor para ajustar altura */
+    transform: translateY(-50%) !important;
+    left: 2rem !important;
+  }
+  
+  #hero button[aria-label="Siguiente"] {
+    top: 50% !important;  /* 👈 Cambia este valor para ajustar altura */
+    transform: translateY(-50%) !important;
+    right: 2rem !important;
+  }
+}
+
+/* ====================================
+   WHY CHOOSE PRAGMO MOBILE OPTIMIZATIONS
+   ==================================== */
+
+/* Mobile comparison section spacing */
+@media (max-width: 640px) {
+  /* Section padding optimization for comparison section */
+  section:has([data-section="why-choose-pragmo"]) {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Title responsive sizing */
+  section:has([data-section="why-choose-pragmo"]) h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Button container spacing */
+  section:has([data-section="why-choose-pragmo"]) .flex.justify-center.gap-4 {
+    gap: 0.5rem !important;
+    margin-bottom: 2rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Toggle buttons mobile optimization */
+  section:has([data-section="why-choose-pragmo"]) .flex.justify-center.gap-4 button {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 0.5rem !important;
+    min-width: 150px !important;
+    flex: 1 !important;
+    max-width: 200px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Mobile card improvements */
+  .bg-white.rounded-xl.shadow-lg.p-4.border-l-4.border-primary {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    border-radius: 12px !important;
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+  }
+
+  /* Feature title in mobile cards */
+  .bg-white.rounded-xl.shadow-lg.p-4.border-l-4.border-primary h4 {
+    font-size: 0.95rem !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Icon sizing in mobile cards */
+  .bg-white.rounded-xl.shadow-lg.p-4.border-l-4.border-primary .text-2xl {
+    font-size: 1.5rem !important;
+  }
+
+  /* Comparison values spacing */
+  .bg-white.rounded-xl.shadow-lg.p-4.border-l-4.border-primary .space-y-3 > div {
+    padding: 0.4rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  /* Badge text sizing and spacing */
+  .space-y-3 .text-red-600.font-medium,
+  .space-y-3 .text-primary.font-medium,
+  .space-y-3 .text-green-600.font-bold {
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.6rem !important;
+    white-space: nowrap !important;
+    border-radius: 6px !important;
+    max-width: 60% !important;
+    text-align: center !important;
+  }
+
+  /* Label text in mobile comparison */
+  .space-y-3 .text-gray-600.text-sm.font-medium {
+    font-size: 0.8rem !important;
+    color: #6b7280 !important;
+    font-weight: 500 !important;
+    flex-shrink: 0 !important;
+    width: 35% !important;
+  }
+
+  /* Bottom CTA section mobile */
+  .bg-gradient-to-r.from-primary.to-primary-light {
+    margin-top: 2rem !important;
+    padding: 1.5rem !important;
+    border-radius: 12px !important;
+  }
+
+  .bg-gradient-to-r.from-primary.to-primary-light h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .bg-gradient-to-r.from-primary.to-primary-light p {
+    font-size: 0.875rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .bg-gradient-to-r.from-primary.to-primary-light button {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.875rem !important;
+    width: 100% !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Divider styling */
+  .bg-white.rounded-xl.shadow-lg.p-4.border-l-4.border-primary .border-b.border-gray-100 {
+    border-color: #f3f4f6 !important;
+  }
+
+  .bg-white.rounded-xl.shadow-lg.p-4.border-l-4.border-primary .border-t.border-gray-100 {
+    border-color: #f3f4f6 !important;
+    margin-top: 0.5rem !important;
+    padding-top: 0.75rem !important;
+  }
+}
+
+/* Desktop button centering */
+@media (min-width: 641px) {
+  /* Toggle buttons desktop optimization */
+  section:has([data-section="why-choose-pragmo"]) .flex.justify-center.gap-4 button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.75rem 2rem !important;
+  }
+}
+
+/* Extra compact for very small screens */
+@media (max-width: 375px) {
+  .bg-white.rounded-xl.shadow-lg.p-4.border-l-4.border-primary {
+    padding: 0.75rem !important;
+  }
+
+  .space-y-3 .text-red-600.font-medium,
+  .space-y-3 .text-primary.font-medium,
+  .space-y-3 .text-green-600.font-bold {
+    font-size: 0.7rem !important;
+    padding: 0.25rem 0.5rem !important;
+    max-width: 65% !important;
+  }
+
+  .space-y-3 .text-gray-600.text-sm.font-medium {
+    font-size: 0.75rem !important;
+    width: 30% !important;
+  }
 }
 
 /* Print styles */

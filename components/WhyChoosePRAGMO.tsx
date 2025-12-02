@@ -56,7 +56,7 @@ const WhyChoosePRAGMO: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-24" data-section="why-choose-pragmo">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-primary text-sm font-semibold tracking-wide uppercase">
@@ -65,9 +65,14 @@ const WhyChoosePRAGMO: React.FC = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mt-4 mb-6">
             La Diferencia es <span className="text-primary">Abrumadora</span>
           </h2>
-          <p className="text-lg text-text-secondary max-w-3xl mx-auto mb-8">
-            Descubre por qué empresas líderes han elegido PRAGMO como su aliado 
-            estratégico en transformación digital de seguridad industrial.
+          <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto mb-6 md:mb-8 px-2">
+            <span className="hidden md:inline">
+              Descubre por qué empresas líderes han elegido PRAGMO como su aliado 
+              estratégico en transformación digital de seguridad industrial.
+            </span>
+            <span className="md:hidden">
+              Descubre por qué empresas líderes eligen PRAGMO para su transformación digital.
+            </span>
           </p>
 
           {/* Toggle Buttons */}
@@ -97,45 +102,92 @@ const WhyChoosePRAGMO: React.FC = () => {
 
         {/* Comparison View */}
         {activeView === 'comparison' && (
-          <div className="space-y-8">
-            <div className="grid gap-6 md:gap-8">
-              {/* Header */}
-              <div className="grid grid-cols-4 gap-4 text-center font-bold text-sm md:text-base">
-                <div className="text-primary-dark">Proceso</div>
-                <div className="text-red-600">Método Tradicional</div>
-                <div className="text-primary">Con PRAGMO</div>
-                <div className="text-green-600">Mejora</div>
-              </div>
+          <div className="space-y-6">
+            {/* Desktop Table View */}
+            <div className="hidden md:block">
+              <div className="overflow-x-auto">
+                <div className="min-w-full">
+                  {/* Header */}
+                  <div className="grid grid-cols-4 gap-4 text-center font-bold text-base mb-6">
+                    <div className="text-primary-dark">Proceso</div>
+                    <div className="text-red-600">Método Tradicional</div>
+                    <div className="text-primary">Con PRAGMO</div>
+                    <div className="text-green-600">Mejora</div>
+                  </div>
 
-              {/* Comparison rows */}
+                  {/* Comparison rows */}
+                  {comparisons.map((item, index) => (
+                    <div 
+                      key={index}
+                      className="grid grid-cols-4 gap-4 items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-primary mb-4"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">{item.icon}</span>
+                        <span className="font-semibold text-primary-dark text-base">
+                          {item.feature}
+                        </span>
+                      </div>
+                      
+                      <div className="text-center">
+                        <span className="text-red-600 font-medium bg-red-50 px-3 py-2 rounded-full text-sm">
+                          {item.traditional}
+                        </span>
+                      </div>
+                      
+                      <div className="text-center">
+                        <span className="text-primary font-medium bg-primary/10 px-3 py-2 rounded-full text-sm">
+                          {item.pragmo}
+                        </span>
+                      </div>
+                      
+                      <div className="text-center">
+                        <span className="text-green-600 font-bold bg-green-50 px-3 py-2 rounded-full text-sm">
+                          {item.improvement}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Card View */}
+            <div className="block md:hidden space-y-4">
               {comparisons.map((item, index) => (
                 <div 
                   key={index}
-                  className="grid grid-cols-4 gap-4 items-center p-4 md:p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-primary"
+                  className="bg-white rounded-xl shadow-lg p-4 border-l-4 border-primary"
                 >
-                  <div className="flex items-center gap-3">
+                  {/* Feature Header */}
+                  <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
                     <span className="text-2xl">{item.icon}</span>
-                    <span className="font-semibold text-primary-dark text-sm md:text-base">
+                    <h4 className="font-bold text-primary-dark text-base">
                       {item.feature}
-                    </span>
+                    </h4>
                   </div>
-                  
-                  <div className="text-center">
-                    <span className="text-red-600 font-medium bg-red-50 px-3 py-1 rounded-full text-sm">
-                      {item.traditional}
-                    </span>
-                  </div>
-                  
-                  <div className="text-center">
-                    <span className="text-primary font-medium bg-primary/10 px-3 py-1 rounded-full text-sm">
-                      {item.pragmo}
-                    </span>
-                  </div>
-                  
-                  <div className="text-center">
-                    <span className="text-green-600 font-bold bg-green-50 px-3 py-1 rounded-full text-sm">
-                      {item.improvement}
-                    </span>
+
+                  {/* Comparison Grid */}
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600 text-sm font-medium">Tradicional:</span>
+                      <span className="text-red-600 font-medium bg-red-50 px-2 py-1 rounded text-xs">
+                        {item.traditional}
+                      </span>
+                    </div>
+                    
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600 text-sm font-medium">PRAGMO:</span>
+                      <span className="text-primary font-medium bg-primary/10 px-2 py-1 rounded text-xs">
+                        {item.pragmo}
+                      </span>
+                    </div>
+                    
+                    <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+                      <span className="text-gray-600 text-sm font-medium">Mejora:</span>
+                      <span className="text-green-600 font-bold bg-green-50 px-2 py-1 rounded text-xs">
+                        {item.improvement}
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}

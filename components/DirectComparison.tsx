@@ -87,7 +87,7 @@ const DirectComparison: React.FC = () => {
       period: "/mes", 
       description: "Solución completa empresarial",
       features: [
-        "Módulos a cotizar",
+        "+ 8 módulos",
         "Hasta 200 usuarios",
         "Funciones ilimitadas",
         "Soporte dedicado 24/7",

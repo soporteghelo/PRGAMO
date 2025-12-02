@@ -70,13 +70,13 @@ const Hero: React.FC = () => {
                 <h1 className="text-lg sm:text-xl md:text-2xl xl:text-3xl font-extrabold mb-3 leading-tight text-shadow-sm px-2">
                     Digitaliza tus Operaciones y Automatiza tus Flujos de Trabajo
                 </h1>
-                <p className="text-sm md:text-base lg:text-lg text-gray-200 max-w-3xl mx-auto px-2">
-                    PRAGMO es la solución todo-en-uno que transforma tus formularios en papel en checklists digitales inteligentes. Gestiona tareas, reporta avances y optimiza cualquier proceso desde cualquier lugar, con o sin internet.
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-200 max-w-2xl sm:max-w-3xl mx-auto px-2 leading-tight sm:leading-normal">
+                    PRAGMO transforma formularios en papel a checklists digitales inteligentes. Gestiona tareas y optimiza procesos desde cualquier lugar.
                 </p>
             </div>
         </div>
 
-        <div className="relative container mx-auto px-4 md:px-6 mt-4 md:mt-6 flex items-center justify-center overflow-hidden">
+        <div className="relative container mx-auto px-4 md:px-6 mt-0 md:mt-6 flex items-start justify-center min-h-[150px] sm:min-h-[200px] overflow-visible">
             {/* Efectos visuales alrededor del celular - Responsivo */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
                 {/* Círculos animados - Tamaños ajustados para móvil */}
@@ -111,7 +111,7 @@ const Hero: React.FC = () => {
             <button 
                 onClick={handlePrev} 
                 aria-label="Anterior" 
-                className="absolute left-2 sm:left-4 md:left-0 z-30 bg-white/90 hover:bg-white text-primary hover:text-primary-dark rounded-full p-2 sm:p-3 md:p-4 transition-all duration-300 hover:scale-110 disabled:opacity-50 border-2 border-white shadow-xl backdrop-blur-sm">
+                className="absolute left-4 sm:left-6 md:left-0 z-50 bg-white/95 hover:bg-white text-primary hover:text-primary-dark rounded-full p-2.5 sm:p-3 md:p-4 transition-all duration-300 hover:scale-110 disabled:opacity-50 border-2 border-primary/30 shadow-2xl backdrop-blur-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
             </button>
             
@@ -172,11 +172,11 @@ const Hero: React.FC = () => {
             <button 
                 onClick={handleNext} 
                 aria-label="Siguiente" 
-                className="absolute right-2 sm:right-4 md:right-0 z-30 bg-white/90 hover:bg-white text-primary hover:text-primary-dark rounded-full p-2 sm:p-3 md:p-4 transition-all duration-300 hover:scale-110 disabled:opacity-50 border-2 border-white shadow-xl backdrop-blur-sm">
+                className="absolute right-4 sm:right-6 md:right-0 z-50 bg-white/95 hover:bg-white text-primary hover:text-primary-dark rounded-full p-2.5 sm:p-3 md:p-4 transition-all duration-300 hover:scale-110 disabled:opacity-50 border-2 border-primary/30 shadow-2xl backdrop-blur-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
             </button>
         </div>
-        <div className="relative text-center mt-3 px-4">
+        <div className="relative text-center mt-1 px-4">
           <h3 key={currentTitle} className="text-sm sm:text-base md:text-lg font-extrabold text-white animate-fade-in text-shadow-sm">
             {currentTitle}
           </h3>
