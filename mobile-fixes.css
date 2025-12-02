@@ -1062,10 +1062,10 @@ header .absolute::-webkit-scrollbar {
     overflow: hidden !important;
   }
   
-  /* Phone mockup in modal - lo más grande posible */
-  #developments .fixed.inset-0 .relative.w-80 {
-    width: 80vw !important;
-    max-width: 304px !important;
+  /* Phone mockup in modal - lo más grande posible con 5% reducción */
+  #developments .fixed.inset-0 .relative.w-76 {
+    width: 76vw !important;
+    max-width: 289px !important;
     height: 70vh !important;
     max-height: 600px !important;
   }
@@ -1120,9 +1120,9 @@ header .absolute::-webkit-scrollbar {
 
 /* Very small mobile devices */
 @media (max-width: 375px) {
-  #developments .fixed.inset-0 .relative.w-80 {
-    width: 76vw !important;
-    max-width: 266px !important;
+  #developments .fixed.inset-0 .relative.w-76 {
+    width: 72vw !important;
+    max-width: 253px !important;
     height: 65vh !important;
     max-height: 520px !important;
   }
@@ -1151,9 +1151,9 @@ header .absolute::-webkit-scrollbar {
 
 /* Medium mobile devices */
 @media (min-width: 376px) and (max-width: 480px) {
-  #developments .fixed.inset-0 .relative.w-80 {
-    width: 78vw !important;
-    max-width: 333px !important;
+  #developments .fixed.inset-0 .relative.w-76 {
+    width: 74vw !important;
+    max-width: 316px !important;
     height: 72vh !important;
     max-height: 580px !important;
   }
@@ -1161,9 +1161,9 @@ header .absolute::-webkit-scrollbar {
 
 /* Large mobile and small tablets */
 @media (min-width: 481px) and (max-width: 767px) {
-  #developments .fixed.inset-0 .relative.w-80 {
-    width: 71vw !important;
-    max-width: 380px !important;
+  #developments .fixed.inset-0 .relative.w-76 {
+    width: 67vw !important;
+    max-width: 361px !important;
     height: 75vh !important;
     max-height: 650px !important;
   }
@@ -1171,8 +1171,8 @@ header .absolute::-webkit-scrollbar {
 
 /* Desktop and tablets */
 @media (min-width: 768px) {
-  #developments .fixed.inset-0 .relative.w-80 {
-    width: 380px !important;
+  #developments .fixed.inset-0 .relative.w-76 {
+    width: 361px !important;
     height: 80vh !important;
     max-height: 700px !important;
   }
@@ -1185,9 +1185,9 @@ header .absolute::-webkit-scrollbar {
     padding: 0.5rem !important;
   }
   
-  #developments .fixed.inset-0 .relative.w-80 {
-    width: 43vw !important;
-    max-width: 285px !important;
+  #developments .fixed.inset-0 .relative.w-76 {
+    width: 41vw !important;
+    max-width: 271px !important;
     height: 85vh !important;
     max-height: 500px !important;
   }
