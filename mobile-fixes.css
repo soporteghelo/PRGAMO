@@ -938,6 +938,26 @@ section {
   #developments .text-center.max-w-3xl span {
     font-size: 0.75rem !important;
   }
+  
+  /* Card height increase for extra small devices */
+  #developments [style*="gap"] > div {
+    min-height: 440px !important; /* Slightly less for very small screens */
+  }
+  
+  #developments .w-28.h-60 {
+    height: 14rem !important; /* 224px para pantallas muy pequeñas */
+  }
+}
+
+/* Medium mobile devices height optimization */
+@media (min-width: 376px) and (max-width: 767px) {
+  #developments [style*="gap"] > div {
+    min-height: 520px !important; /* Aumentar altura en dispositivos medianos */
+  }
+  
+  #developments .w-28.h-60 {
+    height: 16rem !important; /* 256px para dispositivos medianos */
+  }
 }
 
 /* Header contact dropdown fixes */
@@ -970,14 +990,32 @@ header .absolute::-webkit-scrollbar {
     justify-content: center !important;
     align-items: center !important;
     flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
   }
   
-  /* Make sure cards take full available width on mobile - increased 10% */
+  /* Make sure cards take optimal width for mobile - single card view */
   #developments [style*="gap"] > div {
-    min-width: 105% !important;
-    max-width: 105% !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    min-width: 100% !important;
     flex-shrink: 0 !important;
-    transform: scale(1.1) !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    min-height: 480px !important; /* Aumentar altura de tarjeta en 10% */
+  }
+  
+  /* Increase card container height for mobile */
+  #developments .bg-gradient-to-br.from-slate-900 {
+    min-height: 480px !important;
+  }
+  
+  /* Phone mockup height increase for mobile */
+  #developments .w-28.h-60,
+  #developments .w-28.h-52 {
+    height: 15rem !important; /* h-60 = 240px, aumentado 10% */
   }
   
   /* Center the single card container */
@@ -990,6 +1028,168 @@ header .absolute::-webkit-scrollbar {
   /* Ensure smooth transitions for single card view */
   #developments [style*="transform"] {
     transition: all 0.3s ease-in-out !important;
+  }
+}
+
+/* ====================================
+   MODAL EXPANDIDO MÓVIL OPTIMIZACIÓN
+   ==================================== */
+
+/* Modal expandido optimizations for mobile */
+@media (max-width: 767px) {
+  /* Modal container optimization */
+  #developments .fixed.inset-0 {
+    padding: 0.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: none !important;
+  }
+  
+  /* Modal content responsive sizing */
+  #developments .fixed.inset-0 > div {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.5rem !important;
+    overflow: hidden !important;
+  }
+  
+  /* Phone mockup in modal - lo más grande posible */
+  #developments .fixed.inset-0 .relative.w-80 {
+    width: 80vw !important;
+    max-width: 304px !important;
+    height: 70vh !important;
+    max-height: 600px !important;
+  }
+  
+  /* Navigation buttons in modal - better spacing */
+  #developments .fixed.inset-0 .flex.justify-center.items-center {
+    gap: 0.5rem !important;
+  }
+  
+  /* Modal navigation buttons - touch friendly */
+  #developments .fixed.inset-0 button {
+    touch-action: manipulation !important;
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  /* Modal text optimization */
+  #developments .fixed.inset-0 h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Modal description */
+  #developments .fixed.inset-0 p {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+    max-width: 90% !important;
+  }
+  
+  /* Modal action buttons */
+  #developments .fixed.inset-0 .mt-6 {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin-top: 1.5rem !important;
+  }
+  
+  /* Position indicators in modal */
+  #developments .fixed.inset-0 .flex.justify-center.mt-4 {
+    margin-top: 1rem !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* Close button positioning */
+  #developments .fixed.inset-0 .absolute.-top-10 {
+    top: -2rem !important;
+    right: -0.5rem !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 50% !important;
+    padding: 0.5rem !important;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 375px) {
+  #developments .fixed.inset-0 .relative.w-80 {
+    width: 76vw !important;
+    max-width: 266px !important;
+    height: 65vh !important;
+    max-height: 520px !important;
+  }
+  
+  #developments .fixed.inset-0 .flex.justify-center.items-center {
+    gap: 0.25rem !important;
+  }
+}
+
+/* Global scrollbar elimination for modal */
+#developments .fixed.inset-0,
+#developments .fixed.inset-0 *,
+#developments .fixed.inset-0 *:before,
+#developments .fixed.inset-0 *:after {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+#developments .fixed.inset-0::-webkit-scrollbar,
+#developments .fixed.inset-0 *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Medium mobile devices */
+@media (min-width: 376px) and (max-width: 480px) {
+  #developments .fixed.inset-0 .relative.w-80 {
+    width: 78vw !important;
+    max-width: 333px !important;
+    height: 72vh !important;
+    max-height: 580px !important;
+  }
+}
+
+/* Large mobile and small tablets */
+@media (min-width: 481px) and (max-width: 767px) {
+  #developments .fixed.inset-0 .relative.w-80 {
+    width: 71vw !important;
+    max-width: 380px !important;
+    height: 75vh !important;
+    max-height: 650px !important;
+  }
+}
+
+/* Desktop and tablets */
+@media (min-width: 768px) {
+  #developments .fixed.inset-0 .relative.w-80 {
+    width: 380px !important;
+    height: 80vh !important;
+    max-height: 700px !important;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 767px) and (orientation: landscape) {
+  #developments .fixed.inset-0 > div {
+    min-height: auto !important;
+    padding: 0.5rem !important;
+  }
+  
+  #developments .fixed.inset-0 .relative.w-80 {
+    width: 43vw !important;
+    max-width: 285px !important;
+    height: 85vh !important;
+    max-height: 500px !important;
   }
 }
 
