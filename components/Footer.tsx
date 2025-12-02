@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
                     <li><a href="#use-cases" onClick={(e) => {e.preventDefault(); document.getElementById('use-cases')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Casos de Uso por Industria</a></li>
                     <li><a href="#comparison" onClick={(e) => {e.preventDefault(); document.getElementById('comparison')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Comparación con Competencia</a></li>
                     <li><a href="#hero" onClick={(e) => {e.preventDefault(); document.getElementById('hero')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Demos Interactivas</a></li>
-                    <li><a href="#roi-calculator" onClick={(e) => {e.preventDefault(); const roi = document.querySelector('[class*="ROICalculator"]'); roi?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Calculadora de ROI</a></li>
+                    <li><a href="#roi-calculator" onClick={(e) => {e.preventDefault(); document.getElementById('roi-calculator')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Calculadora de ROI</a></li>
                     <li><a href="#faq" onClick={(e) => {e.preventDefault(); document.getElementById('faq')?.scrollIntoView({behavior: 'smooth'});}} className="hover:text-white cursor-pointer">Preguntas Frecuentes</a></li>
                 </ul>
             </div>

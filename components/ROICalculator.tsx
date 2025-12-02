@@ -59,7 +59,7 @@ const ROICalculator: React.FC = () => {
   };
 
   return (
-    <section className="py-12">
+    <section id="roi-calculator" className="py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-6 sm:mb-8 px-4">
           <span className="text-primary text-xs sm:text-sm font-semibold tracking-wide uppercase">

@@ -940,6 +940,22 @@ section {
   }
 }
 
+/* Header contact dropdown fixes */
+header .relative {
+  overflow: visible !important;
+}
+
+header .absolute {
+  overflow: visible !important;
+  max-height: none !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+header .absolute::-webkit-scrollbar {
+  display: none !important;
+}
+
 /* Mobile single card view optimization */
 @media (max-width: 767px) {
   /* Fix title layout specifically */
