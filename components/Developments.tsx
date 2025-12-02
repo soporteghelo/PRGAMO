@@ -295,8 +295,42 @@ const Developments: React.FC = () => {
             </div>
             
             {/* Imagen del teléfono expandida - mismo diseño que las tarjetas */}
-            <div className="flex justify-center items-center flex-1">
+            <div className="flex justify-center items-center flex-1 relative">
               <div className="relative flex-shrink-0">
+                {/* Botón Anterior - Lado izquierdo a la mitad */}
+                <button
+                  onClick={() => {
+                    const currentAppIndex = data?.findIndex(app => app.Id === selectedApp.Id) || 0;
+                    const prevIndex = currentAppIndex > 0 ? currentAppIndex - 1 : (data?.length || 1) - 1;
+                    const prevApp = data?.[prevIndex];
+                    if (prevApp) {
+                      setSelectedApp(prevApp);
+                    }
+                  }}
+                  className="absolute -left-6 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-gray-100 rounded-full transition-all duration-300 hover:scale-110 shadow-2xl border-2 border-gray-200 z-50"
+                >
+                  <svg className="w-5 h-5 text-gray-800 hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M15 19l-7-7 7-7"/>
+                  </svg>
+                </button>
+                
+                {/* Botón Siguiente - Lado derecho a la mitad */}
+                <button
+                  onClick={() => {
+                    const currentAppIndex = data?.findIndex(app => app.Id === selectedApp.Id) || 0;
+                    const nextIndex = currentAppIndex < (data?.length || 1) - 1 ? currentAppIndex + 1 : 0;
+                    const nextApp = data?.[nextIndex];
+                    if (nextApp) {
+                      setSelectedApp(nextApp);
+                    }
+                  }}
+                  className="absolute -right-6 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-gray-100 rounded-full transition-all duration-300 hover:scale-110 shadow-2xl border-2 border-gray-200 z-50"
+                >
+                  <svg className="w-5 h-5 text-gray-800 hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </button>
+                
                 {/* Marco del smartphone - Versión expandida con mismo diseño que las tarjetas */}
                 <div className="relative w-76 h-[80vh] max-w-[304px] max-h-[600px] bg-gradient-to-b from-slate-800 to-slate-900 rounded-[1.2rem] p-1.5 shadow-2xl border-2 border-slate-700 group">
                   {/* Notch - Mismo diseño que las tarjetas */}
@@ -367,43 +401,6 @@ const Developments: React.FC = () => {
                   <div className="absolute inset-0 rounded-[1.2rem] bg-gradient-to-t from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
               </div>
-            </div>
-            
-            {/* Botones de navegación en la parte inferior */}
-            <div className="flex justify-center items-center mt-1 space-x-2">
-              <button
-                onClick={() => {
-                  const currentAppIndex = data?.findIndex(app => app.Id === selectedApp.Id) || 0;
-                  const prevIndex = currentAppIndex > 0 ? currentAppIndex - 1 : (data?.length || 1) - 1;
-                  const prevApp = data?.[prevIndex];
-                  if (prevApp) {
-                    setSelectedApp(prevApp);
-                  }
-                }}
-                className="flex items-center space-x-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white py-1.5 px-3 rounded-full transition-all duration-300 hover:scale-105 text-xs"
-              >
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"/>
-                </svg>
-                <span>Anterior</span>
-              </button>
-              
-              <button
-                onClick={() => {
-                  const currentAppIndex = data?.findIndex(app => app.Id === selectedApp.Id) || 0;
-                  const nextIndex = currentAppIndex < (data?.length || 1) - 1 ? currentAppIndex + 1 : 0;
-                  const nextApp = data?.[nextIndex];
-                  if (nextApp) {
-                    setSelectedApp(nextApp);
-                  }
-                }}
-                className="flex items-center space-x-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white py-1.5 px-3 rounded-full transition-all duration-300 hover:scale-105 text-xs"
-              >
-                <span>Siguiente</span>
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </button>
             </div>
             
 
