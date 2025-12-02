@@ -19,7 +19,10 @@ const CARD_CONFIG = {
   phonePosition: 'justify-center items-center', // Posición: 'justify-start' | 'justify-center' | 'justify-end'
   
   // 🎯 Configuración del carrusel y navegación
-  itemsPerPage: 4,            // Número de tarjetas visibles antes de "Siguiente"
+  itemsPerPage: {
+    mobile: 1,                // 1 tarjeta en móvil
+    desktop: 4                // 4 tarjetas en desktop
+  },
   forceNavigation: true,      // true = siempre usar navegación | false = mostrar todas si caben
   
   // 📏 Configuración del contenedor y espaciado
@@ -57,7 +60,21 @@ const Developments: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('right');
-  const itemsPerPage = CARD_CONFIG.itemsPerPage;
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Detectar si es móvil
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  const itemsPerPage = isMobile ? CARD_CONFIG.itemsPerPage.mobile : CARD_CONFIG.itemsPerPage.desktop;
   
   // Calcular total de páginas
   const totalPages = data ? Math.ceil(data.length / itemsPerPage) : 0;
@@ -104,8 +121,9 @@ const Developments: React.FC = () => {
   // Obtener elementos para la página actual
   const getCurrentItems = () => {
     if (!data) return [];
-    const startIndex = currentIndex * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
+    const currentItemsPerPage = isMobile ? CARD_CONFIG.itemsPerPage.mobile : CARD_CONFIG.itemsPerPage.desktop;
+    const startIndex = currentIndex * currentItemsPerPage;
+    const endIndex = startIndex + currentItemsPerPage;
     return data.slice(startIndex, endIndex);
   };
 
@@ -118,8 +136,8 @@ const Developments: React.FC = () => {
       
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
         <div className="text-center max-w-3xl mx-auto mb-8">
-            <span className="text-primary font-semibold uppercase tracking-wider">Apps en Acción</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-primary-dark mt-2 mb-4">
+            <span className="text-primary font-semibold uppercase tracking-wider block">APPS EN ACCIÓN</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-primary-dark mt-2 mb-4 block">
               Nuestros Desarrollos
             </h2>
             <p className="text-lg text-subtle">
@@ -158,9 +176,11 @@ const Developments: React.FC = () => {
                     }`}
                     style={{ 
                       transitionDelay: `${index * 50}ms`,
-                      width: CARD_CONFIG.cardWidth === 'auto' 
-                        ? `calc((100% - ${CARD_CONFIG.cardSpacing} * ${itemsPerPage - 1}) / ${itemsPerPage})` 
-                        : CARD_CONFIG.cardWidth
+                      width: isMobile 
+                        ? '95%' 
+                        : CARD_CONFIG.cardWidth === 'auto' 
+                          ? `calc((100% - ${CARD_CONFIG.cardSpacing} * ${CARD_CONFIG.itemsPerPage.desktop - 1}) / ${CARD_CONFIG.itemsPerPage.desktop})` 
+                          : CARD_CONFIG.cardWidth
                     }}
                   >
                     <DevelopmentCard 
@@ -178,7 +198,7 @@ const Developments: React.FC = () => {
             
             {/* Controles de navegación - Solo mostrar si hay más de una página */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-center space-x-4">
+              <div className="flex items-center justify-center space-x-8">
                 {/* Botón Anterior */}
                 <button
                   onClick={goToPrevious}
@@ -194,24 +214,6 @@ const Developments: React.FC = () => {
                   </svg>
                   Anterior
                 </button>
-                
-                {/* Indicadores de páginas */}
-                <div className="flex space-x-2">
-                  {Array.from({ length: totalPages }, (_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => goToPage(i)}
-                      disabled={isTransitioning}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                        i === currentIndex 
-                          ? 'bg-blue-500 scale-125 shadow-lg shadow-blue-500/50' 
-                          : isTransitioning 
-                          ? 'bg-gray-600 cursor-not-allowed' 
-                          : 'bg-gray-500 hover:bg-gray-400 hover:scale-110'
-                      }`}
-                    />
-                  ))}
-                </div>
                 
                 {/* Botón Siguiente */}
                 <button
