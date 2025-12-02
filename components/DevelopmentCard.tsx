@@ -7,9 +7,47 @@ interface DevelopmentCardProps {
   Descripcion?: string;
   Categoria?: string;
   Contacto?: string;
+  cardConfig?: {
+    cardWidth: string;
+    cardHeight: string;
+    cardPadding: string;
+    phoneWidth: string;
+    phoneHeight: string;
+    phonePosition: string;
+    itemsPerPage: number;
+    gridCols: {
+      mobile: string;
+      tablet: string;
+      laptop: string;
+      desktop: string;
+    };
+    gap: string;
+  };
 }
 
-const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descripcion, Categoria, Contacto }) => {
+const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ 
+  Titulo, 
+  Link, 
+  Descripcion, 
+  Categoria, 
+  Contacto, 
+  cardConfig = {
+    cardWidth: 'auto',
+    cardHeight: 'h-full',
+    cardPadding: 'p-3 sm:p-4',
+    phoneWidth: 'w-28 sm:w-32',
+    phoneHeight: 'h-52 sm:h-60',
+    phonePosition: 'justify-center items-center',
+    itemsPerPage: 4,
+    gridCols: {
+      mobile: 'grid-cols-1',
+      tablet: 'sm:grid-cols-2',
+      laptop: 'lg:grid-cols-3',
+      desktop: 'xl:grid-cols-4'
+    },
+    gap: 'gap-3 sm:gap-4'
+  }
+}) => {
   const isVideo = (url: string): boolean => {
     if (!url) return false;
     return url.toLowerCase().endsWith('.mp4') || 
@@ -18,8 +56,10 @@ const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descrip
   };
 
   return (
-    <div className="group relative h-full">
-      <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 rounded-2xl p-3 sm:p-4 shadow-2xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 hover:shadow-blue-500/20 hover:shadow-2xl h-full flex flex-col">
+    <div className="group relative h-full w-full">
+      <div 
+        className={`bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 rounded-2xl ${cardConfig.cardPadding} shadow-2xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 hover:shadow-blue-500/20 hover:shadow-2xl ${cardConfig.cardHeight} flex flex-col w-full`}
+      >
         
         {/* Categoría */}
         {Categoria && (
@@ -43,11 +83,11 @@ const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descrip
           </p>
         )}
         
-        {/* Smartphone Mockup - Centrado */}
-        <div className="flex justify-center flex-grow items-center py-2">
+        {/* Smartphone Mockup - Posición Configurable */}
+        <div className={`flex ${cardConfig.phonePosition} flex-grow py-2`}>
           <div className="relative group-hover:scale-105 transition-transform duration-500">
-            {/* Marco del smartphone - Altura ajustada +2% */}
-            <div className="relative w-28 sm:w-32 h-52 sm:h-60 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[1.2rem] p-1.5 shadow-2xl border-2 border-slate-700">
+            {/* Marco del smartphone - Dimensiones Configurables */}
+            <div className={`relative ${cardConfig.phoneWidth} ${cardConfig.phoneHeight} bg-gradient-to-b from-slate-800 to-slate-900 rounded-[1.2rem] p-1.5 shadow-2xl border-2 border-slate-700`}>
               {/* Notch */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-slate-900 rounded-b-lg z-10"></div>
               
@@ -65,7 +105,7 @@ const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descrip
                           className="w-full h-full border-0 object-cover"
                           title={Titulo}
                           loading="lazy"
-                          style={{ imageRendering: 'crisp-edges', imageRendering: '-webkit-optimize-contrast' }}
+                          style={{ imageRendering: 'crisp-edges' }}
                         ></iframe>
                       ) : (
                         <video
@@ -77,7 +117,7 @@ const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descrip
                           className="w-full h-full object-cover"
                           title={Titulo}
                           preload="metadata"
-                          style={{ imageRendering: 'crisp-edges', imageRendering: '-webkit-optimize-contrast' }}
+                          style={{ imageRendering: 'crisp-edges' }}
                         ></video>
                       )
                     ) : (
@@ -88,8 +128,7 @@ const DevelopmentCard: React.FC<DevelopmentCardProps> = ({ Titulo, Link, Descrip
                         loading="lazy"
                         decoding="async"
                         style={{ 
-                          imageRendering: 'crisp-edges', 
-                          imageRendering: '-webkit-optimize-contrast',
+                          imageRendering: 'crisp-edges',
                           filter: 'contrast(1.1) brightness(1.05)',
                           backfaceVisibility: 'hidden',
                           transform: 'translateZ(0)'

@@ -4,6 +4,40 @@ import Loader from './Loader';
 import { useGoogleSheetData } from '../hooks/useGoogleSheetData';
 // Fondo se maneja externamente para alternar
 
+// ====================================
+// 🎯 CONFIGURACIÓN DE TARJETAS Y CELULARES
+// ====================================
+const CARD_CONFIG = {
+  // 📱 Configuración del cajón azul (en Tailwind classes o px)
+  cardWidth: '400px',          // 'auto' o '300px' para ancho fijo
+  cardHeight: 'h-full',       // 'h-full', 'h-96', o '400px'
+  cardPadding: 'p-3 sm:p-4', // Padding interno del cajón
+  
+  // 📱 Configuración del celular mockup
+  phoneWidth: 'w-28 sm:w-32',    // Ancho: 'w-24 sm:w-28' (pequeño) | 'w-32 sm:w-36' (grande)
+  phoneHeight: 'h-52 sm:h-64',   // Alto: 'h-48 sm:h-56' (pequeño) | 'h-56 sm:h-64' (grande)
+  phonePosition: 'justify-center items-center', // Posición: 'justify-start' | 'justify-center' | 'justify-end'
+  
+  // 🎯 Configuración del carrusel y navegación
+  itemsPerPage: 4,            // Número de tarjetas visibles antes de "Siguiente"
+  forceNavigation: true,      // true = siempre usar navegación | false = mostrar todas si caben
+  
+  // 📏 Configuración del contenedor y espaciado
+  containerWidth: '95%',      // Ancho total disponible: '90%', '95%', '100%', '1400px'
+  cardSpacing: '20px',        // Espacio entre tarjetas: '10px', '20px', '30px'
+  
+  // 📏 Configuración del grid responsivo (usado solo si forceNavigation = false)
+  gridCols: {
+    mobile: 'grid-cols-1',        // 1 columna en móvil
+    tablet: 'sm:grid-cols-2',     // 2 columnas en tablet
+    laptop: 'lg:grid-cols-3',     // 3 columnas en laptop
+    desktop: 'xl:grid-cols-4'     // 4 columnas en desktop
+  },
+  
+  // 🎨 Configuración de espaciado (legacy - ahora usa cardSpacing)
+  gap: 'gap-3 sm:gap-4',        // Solo usado si forceNavigation = false
+};
+
 // Esta interfaz refleja la estructura de datos que devuelve `useGoogleSheetData`
 // que ahora usa los nombres de columna tal cual están en la hoja.
 interface SheetDevelopmentData {
@@ -23,7 +57,7 @@ const Developments: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('right');
-  const itemsPerPage = 4;
+  const itemsPerPage = CARD_CONFIG.itemsPerPage;
   
   // Calcular total de páginas
   const totalPages = data ? Math.ceil(data.length / itemsPerPage) : 0;
@@ -98,33 +132,48 @@ const Developments: React.FC = () => {
         
         {data && data.length > 0 && (
           <div className="relative flex-1 flex flex-col justify-center">
-            {/* Carrusel de tarjetas */}
-            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 mb-6 transition-all duration-300 ${
-              isTransitioning 
-                ? slideDirection === 'right' 
-                  ? 'transform translate-x-8 opacity-0' 
-                  : 'transform -translate-x-8 opacity-0'
-                : 'transform translate-x-0 opacity-100'
-            }`}>
-              {getCurrentItems().map((dev, index) => (
-                <div 
-                  key={`${currentIndex}-${index}`} 
-                  className={`transform transition-all duration-500 ${
-                    isTransitioning 
-                      ? 'scale-95 opacity-0' 
-                      : 'scale-100 opacity-100 hover:scale-105'
-                  }`}
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                >
-                  <DevelopmentCard 
-                    Titulo={dev.Titulo} 
-                    Link={dev.Link}
-                    Descripcion={dev.Descripcion}
-                    Categoria={dev.Web}
-                    Contacto={dev.Contacto}
-                  />
-                </div>
-              ))}
+            {/* Contenedor principal con ancho configurable */}
+            <div 
+              className="mx-auto mb-6"
+              style={{ width: CARD_CONFIG.containerWidth }}
+            >
+              {/* Carrusel de tarjetas */}
+              <div 
+                className={`flex justify-center transition-all duration-300 ${
+                  isTransitioning 
+                    ? slideDirection === 'right' 
+                      ? 'transform translate-x-8 opacity-0' 
+                      : 'transform -translate-x-8 opacity-0'
+                    : 'transform translate-x-0 opacity-100'
+                }`}
+                style={{ gap: CARD_CONFIG.cardSpacing }}
+              >
+                {getCurrentItems().map((dev, index) => (
+                  <div 
+                    key={`${currentIndex}-${index}`} 
+                    className={`flex-shrink-0 transform transition-all duration-500 ${
+                      isTransitioning 
+                        ? 'scale-95 opacity-0' 
+                        : 'scale-100 opacity-100 hover:scale-105'
+                    }`}
+                    style={{ 
+                      transitionDelay: `${index * 50}ms`,
+                      width: CARD_CONFIG.cardWidth === 'auto' 
+                        ? `calc((100% - ${CARD_CONFIG.cardSpacing} * ${itemsPerPage - 1}) / ${itemsPerPage})` 
+                        : CARD_CONFIG.cardWidth
+                    }}
+                  >
+                    <DevelopmentCard 
+                      Titulo={dev.Titulo} 
+                      Link={dev.Link}
+                      Descripcion={dev.Descripcion}
+                      Categoria={dev.Web}
+                      Contacto={dev.Contacto}
+                      cardConfig={CARD_CONFIG}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
             
             {/* Controles de navegación - Solo mostrar si hay más de una página */}
