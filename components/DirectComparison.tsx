@@ -170,7 +170,7 @@ const DirectComparison: React.FC = () => {
                   <h3 className="text-xl font-bold text-white">{category.category}</h3>
                 </div>
                 
-                <div className="p-3 sm:p-8">
+                <div className="p-3 sm:p-6">
                   <div className="overflow-x-auto">
                     <table className="w-full min-w-full">
                       <thead>
@@ -239,7 +239,7 @@ const DirectComparison: React.FC = () => {
             </div>
 
             {/* Grid de planes PRAGMO */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-2 w-[98%] mx-auto">
               {pricingPlans.map((plan, index) => (
                 <div 
                   key={index}

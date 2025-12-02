@@ -76,26 +76,28 @@ const WhyChoosePRAGMO: React.FC = () => {
           </p>
 
           {/* Toggle Buttons */}
-          <div className="flex justify-center gap-4 mb-12">
+          <div className="flex justify-center gap-2 md:gap-4 mb-12 px-4">
             <button
               onClick={() => setActiveView('comparison')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex-1 px-2 md:px-8 py-2 md:py-3 rounded-xl font-semibold transition-all duration-300 text-xs md:text-base leading-tight ${
                 activeView === 'comparison'
                   ? 'bg-primary text-white shadow-lg'
                   : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
               }`}
             >
-              📊 Ver Comparación
+              <span className="block md:inline text-center">📊</span>
+              <span className="block md:inline text-center">Comparativa</span>
             </button>
             <button
               onClick={() => setActiveView('about')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex-1 px-2 md:px-8 py-2 md:py-3 rounded-xl font-semibold transition-all duration-300 text-xs md:text-base leading-tight ${
                 activeView === 'about'
                   ? 'bg-primary text-white shadow-lg'
                   : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
               }`}
             >
-              🏆 Nuestra Historia
+              <span className="block md:inline text-center">🏆</span>
+              <span className="block md:inline text-center">Nuestra Historia</span>
             </button>
           </div>
         </div>
@@ -152,22 +154,22 @@ const WhyChoosePRAGMO: React.FC = () => {
             </div>
 
             {/* Mobile Card View */}
-            <div className="block md:hidden space-y-4">
+            <div className="block md:hidden space-y-3">
               {comparisons.map((item, index) => (
                 <div 
                   key={index}
-                  className="bg-white rounded-xl shadow-lg p-4 border-l-4 border-primary"
+                  className="bg-white rounded-xl shadow-lg p-3 border-l-4 border-primary"
                 >
                   {/* Feature Header */}
-                  <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
-                    <span className="text-2xl">{item.icon}</span>
-                    <h4 className="font-bold text-primary-dark text-base">
+                  <div className="flex items-center gap-2 mb-3 pb-2 border-b border-gray-100">
+                    <span className="text-xl">{item.icon}</span>
+                    <h4 className="font-bold text-primary-dark text-sm leading-tight">
                       {item.feature}
                     </h4>
                   </div>
 
                   {/* Comparison Grid */}
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600 text-sm font-medium">Tradicional:</span>
                       <span className="text-red-600 font-medium bg-red-50 px-2 py-1 rounded text-xs">

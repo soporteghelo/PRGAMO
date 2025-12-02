@@ -14,7 +14,7 @@ const CARD_CONFIG = {
   cardPadding: 'p-3 sm:p-4', // Padding interno del cajón
   
   // 📱 Configuración del celular mockup
-  phoneWidth: 'w-28 sm:w-32',    // Ancho: 'w-24 sm:w-28' (pequeño) | 'w-32 sm:w-36' (grande)
+  phoneWidth: 'w-28 sm:w-36',    // Ancho: 'w-24 sm:w-28' (pequeño) | 'w-32 sm:w-36' (grande)
   phoneHeight: 'h-60 sm:h-72',   // Alto: aumentado 10% - 'h-52→h-60' (móvil) | 'h-64→h-72' (desktop)
   phonePosition: 'justify-center items-center', // Posición: 'justify-start' | 'justify-center' | 'justify-end'
   
@@ -156,7 +156,7 @@ const Developments: React.FC = () => {
               Nuestros Desarrollos
             </h2>
             <p className="text-lg text-subtle">
-              Así es como nuestros módulos de Inspecciones, IPERC y Reportes se ven en las manos de tus colaboradores.
+              Aplicaciones versátiles diseñadas para adaptarse a cualquier industria y optimizar los procesos de tu empresa.
             </p>
         </div>
 
@@ -332,7 +332,7 @@ const Developments: React.FC = () => {
                 </button>
                 
                 {/* Marco del smartphone - Versión expandida con mismo diseño que las tarjetas */}
-                <div className="relative w-76 h-[80vh] max-w-[304px] max-h-[600px] bg-gradient-to-b from-slate-800 to-slate-900 rounded-[1.2rem] p-1.5 shadow-2xl border-2 border-slate-700 group">
+                <div className="relative w-[17.5rem] h-[80vh] max-w-[282px] max-h-[600px] bg-gradient-to-b from-slate-800 to-slate-900 rounded-[1.2rem] p-1.5 shadow-2xl border-2 border-slate-700 group">
                   {/* Notch - Mismo diseño que las tarjetas */}
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-slate-900 rounded-b-lg z-10"></div>
                   
