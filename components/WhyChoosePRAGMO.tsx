@@ -219,9 +219,11 @@ const WhyChoosePRAGMO: React.FC = () => {
                   <h3 className="text-2xl font-bold text-primary-dark">Nuestra Misión</h3>
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Democratizar la digitalización de procesos empresariales, haciendo que la 
-                  gestión digital sea accesible, eficiente y poderosa para empresas de 
-                  cualquier sector y tamaño en Latinoamérica.
+                  Empoderar a las empresas latinoamericanas con soluciones digitales integrales 
+                  que transforman procesos operativos en ventajas competitivas. A través de nuestra 
+                  plataforma inteligente y servicios especializados, democratizamos la innovación 
+                  tecnológica para organizaciones de cualquier sector y tamaño, haciendo que la 
+                  excelencia operativa sea accesible para todos.
                 </p>
               </div>
 
@@ -231,9 +233,11 @@ const WhyChoosePRAGMO: React.FC = () => {
                   <h3 className="text-2xl font-bold text-primary-dark">Nuestra Visión</h3>
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Ser la plataforma líder en digitalización de procesos empresariales, 
-                  transformando la manera en que las organizaciones gestionan sus 
-                  operaciones mediante tecnología inteligente y accesible.
+                  Ser el ecosistema de soluciones digitales más confiable de Latinoamérica, 
+                  reconocido por revolucionar la gestión empresarial mediante tecnología 
+                  inteligente, adaptable y humanizada. Aspiramos a crear un futuro donde cada 
+                  organización, sin importar su complejidad, pueda operar con máxima eficiencia 
+                  y transparencia a través de nuestras innovaciones.
                 </p>
               </div>
             </div>

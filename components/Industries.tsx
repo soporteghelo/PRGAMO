@@ -56,7 +56,7 @@ const Industries: React.FC = () => {
             Adaptable a tu Sector
           </h2>
           <p className="text-sm text-gray-200 leading-snug">
-            PRAGMO se ajusta a procesos y regulaciones específicas, sin importar la complejidad.
+            PRAGMO desarrolla <span className="font-semibold text-white">soluciones digitales integrales</span> mediante automatización, análisis avanzado, integración de datos, IA y consultoría especializada, adaptándose a procesos y regulaciones específicas sin importar la complejidad.
           </p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 max-w-5xl mx-auto">

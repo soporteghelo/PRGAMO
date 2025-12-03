@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
             Transforma tu Operación Hoy Mismo
           </h2>
           <p className="text-lg text-subtle">
-            Descubre por qué somos la plataforma de más rápido crecimiento. Agenda una demostración de 15 minutos, sin compromiso, y ve el poder de PRAGMO en acción.
+            ¿Tu empresa enfrenta desafíos operacionales? PRAGMO los resuelve mediante <span className="font-semibold text-primary-dark">automatización, análisis avanzado, integración de datos, IA y consultoría especializada</span>. Descubre por qué somos la plataforma de más rápido crecimiento. Agenda una demostración de 15 minutos, sin compromiso, y ve el poder de PRAGMO en acción.
           </p>
         </div>
         
