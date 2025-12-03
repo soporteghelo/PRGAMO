@@ -151,12 +151,12 @@ const Developments: React.FC = () => {
       
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
         <div className="text-center max-w-3xl mx-auto mb-8">
-            <span className="text-primary font-semibold uppercase tracking-wider block">APPS EN ACCIÓN</span>
+            <span className="text-primary font-semibold uppercase tracking-wider block">SOLUCIONES EN ACCIÓN</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-primary-dark mt-2 mb-4 block">
-              Nuestros Desarrollos
+              Nuestras Soluciones Digitales
             </h2>
             <p className="text-lg text-subtle">
-              Aplicaciones versátiles diseñadas para adaptarse a cualquier industria y optimizar los procesos de tu empresa.
+              Herramientas especializadas y servicios integrales que se adaptan a tu industria para revolucionar tus procesos operativos.
             </p>
         </div>
 

@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 
 const faqData = [
   {
+    question: '¿Qué servicios ofrece PRAGMO?',
+    answer: 'PRAGMO es un proveedor integral de soluciones digitales que va más allá del desarrollo de plataformas. Ofrecemos consultoría especializada, desarrollo de aplicaciones personalizadas, automatización de procesos, integración de sistemas, análisis de datos con IA, y acompañamiento completo en la transformación digital de tu empresa. Combinamos tecnología avanzada con experiencia sectorial para crear soluciones que realmente impacten en tus resultados operativos.'
+  },
+  {
     question: '¿Mis datos están seguros en la plataforma?',
     answer: 'La seguridad de tu información es nuestra máxima prioridad y se basa en un principio clave: tus datos se almacenan directamente en tu propia cuenta corporativa (Microsoft 365 o Google Workspace), no en nuestros servidores. PRAGMO se integra con tu entorno existente, por lo que hereda y respeta todas las políticas de seguridad y protección de datos que tu área de TI ya ha establecido. Tú mantienes la soberanía y el control total de tu información en todo momento.'
   },

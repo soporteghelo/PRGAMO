@@ -69,17 +69,17 @@ const App: React.FC = () => {
         {/* 2. Industries */}
         <Section index={1} id="industries"><ErrorBoundary><Industries /></ErrorBoundary></Section>
         
-        {/* 3. Why Choose PRGAMO - NUEVA SECCIÓN */}
+        {/* 3. Developments */}
+        <div className="bg-white"><ErrorBoundary><Developments /></ErrorBoundary></div>
+        
+        {/* 4. Why Choose PRGAMO - NUEVA SECCIÓN */}
         <div id="why-pragmo" className="bg-white"><ErrorBoundary><WhyChoosePRAGMO /></ErrorBoundary></div>
         
-        {/* 4. Services + Use Cases - NUEVA SECCIÓN FUSIONADA */}
+        {/* 5. Services + Use Cases - NUEVA SECCIÓN FUSIONADA */}
         <div id="use-cases" className="bg-gradient-to-br from-gray-50 to-blue-50"><ErrorBoundary><ServicesUseCases /></ErrorBoundary></div>
         
-        {/* 5. How It Works */}
+        {/* 6. How It Works */}
         <Section index={0} id="how-it-works"><ErrorBoundary><HowItWorks /></ErrorBoundary></Section>
-        
-        {/* 6. Developments */}
-        <div className="bg-white"><ErrorBoundary><Developments /></ErrorBoundary></div>
         
         {/* 7. ROI Calculator - NUEVA SECCIÓN */}
         <div className="bg-gray-50"><ErrorBoundary><ROICalculator /></ErrorBoundary></div>

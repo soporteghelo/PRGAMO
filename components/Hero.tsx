@@ -70,10 +70,10 @@ const Hero: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-lg sm:text-xl md:text-2xl xl:text-3xl font-extrabold mb-3 leading-tight text-shadow-sm px-2">
-                    Digitaliza tus Operaciones y Automatiza tus Flujos de Trabajo
+                    Soluciones Digitales que Transforman tu Negocio
                 </h1>
                 <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-200 max-w-2xl sm:max-w-3xl mx-auto px-2 leading-tight sm:leading-normal">
-                    PRAGMO transforma formularios en papel a checklists digitales inteligentes. Gestiona tareas y optimiza procesos desde cualquier lugar.
+                    PRAGMO combina tecnología inteligente con consultoría especializada para digitalizar operaciones, automatizar procesos y potenciar resultados.
                 </p>
             </div>
         </div>

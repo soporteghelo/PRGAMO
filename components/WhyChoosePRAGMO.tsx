@@ -68,7 +68,7 @@ const WhyChoosePRAGMO: React.FC = () => {
           <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto mb-6 md:mb-8 px-2">
             <span className="hidden md:inline">
               Descubre por qué empresas líderes han elegido PRAGMO como su aliado 
-              estratégico en transformación digital de seguridad industrial.
+              estratégico en transformación digital para sus procesos
             </span>
             <span className="md:hidden">
               Descubre por qué empresas líderes eligen PRAGMO para su transformación digital.

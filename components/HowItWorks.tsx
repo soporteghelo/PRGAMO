@@ -48,13 +48,13 @@ const HowItWorks: React.FC = () => {
            <Step
             number="2"
             title="Implementación Guiada"
-            description="Diseñamos y configuramos tu plataforma a medida, cargamos tu información inicial y capacitamos a tu equipo para un arranque rápido."
+            description="Implementamos la solución digital perfecta para tu negocio, configuramos sistemas, migramos datos y capacitamos tu equipo."
             icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10"><path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 11.667 0l3.181-3.183m-4.991-2.691V7.5a3 3 0 0 1 3-3h.008a3 3 0 0 1 3 3v.375" /></svg>}
           />
            <Step
             number="3"
             title="Soporte Continuo"
-            description="Nuestro equipo local está siempre disponible para resolver tus dudas y asegurar que aproveches al máximo la plataforma."
+            description="Nuestro equipo te acompaña con soporte técnico especializado y consultoría continua para maximizar el valor de tu inversión digital."
             icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10"><path strokeLinecap="round" strokeLinejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" /></svg>}
           />
         </div>
