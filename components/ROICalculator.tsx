@@ -65,7 +65,7 @@ const ROICalculator: React.FC = () => {
           <span className="text-primary text-xs sm:text-sm font-semibold tracking-wide uppercase">
             CALCULADORA DE ROI
           </span>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-dark mt-2 mb-3 sm:mb-4 leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-2 mb-3 sm:mb-4 leading-tight">
             Descubre Cuánto Puedes <span className="text-primary">Ahorrar</span>
           </h2>
           <p className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto">
@@ -221,8 +221,8 @@ const ROICalculator: React.FC = () => {
               💡 Insight Personalizado
             </h4>
             <p className="text-blue-800 text-xs sm:text-sm leading-relaxed">
-              Con {inputs.employees} empleados realizando {inputs.inspectionsPerMonth} inspecciones mensuales, 
-              PRAGMO puede generar ahorros de <strong>${results.annualSavings.toFixed(0)} anuales</strong>, 
+              Con {inputs.employees} empleados realizando {inputs.inspectionsPerMonth} inspecciones mensuales,
+              PRAGMO puede generar ahorros de <strong>${results.annualSavings.toFixed(0)} anuales</strong>,
               pagándose solo en <strong>{results.timeToROI.toFixed(1)} meses</strong>.
             </p>
           </div>

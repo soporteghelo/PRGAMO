@@ -7,7 +7,7 @@ const WhyChoosePRAGMO: React.FC = () => {
     {
       feature: "Tiempo de Inspección",
       traditional: "45-60 minutos",
-      pragmo: "15-20 minutos", 
+      pragmo: "15-20 minutos",
       improvement: "70% más rápido",
       icon: "⏱️"
     },
@@ -62,12 +62,12 @@ const WhyChoosePRAGMO: React.FC = () => {
           <span className="text-primary text-sm font-semibold tracking-wide uppercase">
             ¿POR QUÉ ELEGIR PRAGMO?
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mt-4 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6">
             La Diferencia es <span className="text-primary">Abrumadora</span>
           </h2>
           <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto mb-6 md:mb-8 px-2">
             <span className="hidden md:inline">
-              Descubre por qué empresas líderes han elegido PRAGMO como su aliado 
+              Descubre por qué empresas líderes han elegido PRAGMO como su aliado
               estratégico en transformación digital para sus procesos
             </span>
             <span className="md:hidden">
@@ -79,22 +79,20 @@ const WhyChoosePRAGMO: React.FC = () => {
           <div className="flex justify-center gap-2 md:gap-4 mb-12 px-4">
             <button
               onClick={() => setActiveView('comparison')}
-              className={`flex-1 px-2 md:px-8 py-2 md:py-3 rounded-xl font-semibold transition-all duration-300 text-xs md:text-base leading-tight ${
-                activeView === 'comparison'
+              className={`flex-1 px-2 md:px-8 py-2 md:py-3 rounded-xl font-semibold transition-all duration-300 text-xs md:text-base leading-tight ${activeView === 'comparison'
                   ? 'bg-primary text-white shadow-lg'
                   : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
-              }`}
+                }`}
             >
               <span className="block md:inline text-center">📊</span>
               <span className="block md:inline text-center">Comparativa</span>
             </button>
             <button
               onClick={() => setActiveView('about')}
-              className={`flex-1 px-2 md:px-8 py-2 md:py-3 rounded-xl font-semibold transition-all duration-300 text-xs md:text-base leading-tight ${
-                activeView === 'about'
+              className={`flex-1 px-2 md:px-8 py-2 md:py-3 rounded-xl font-semibold transition-all duration-300 text-xs md:text-base leading-tight ${activeView === 'about'
                   ? 'bg-primary text-white shadow-lg'
                   : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md'
-              }`}
+                }`}
             >
               <span className="block md:inline text-center">🏆</span>
               <span className="block md:inline text-center">Nuestra Historia</span>
@@ -119,7 +117,7 @@ const WhyChoosePRAGMO: React.FC = () => {
 
                   {/* Comparison rows */}
                   {comparisons.map((item, index) => (
-                    <div 
+                    <div
                       key={index}
                       className="grid grid-cols-4 gap-4 items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-primary mb-4"
                     >
@@ -129,19 +127,19 @@ const WhyChoosePRAGMO: React.FC = () => {
                           {item.feature}
                         </span>
                       </div>
-                      
+
                       <div className="text-center">
                         <span className="text-red-600 font-medium bg-red-50 px-3 py-2 rounded-full text-sm">
                           {item.traditional}
                         </span>
                       </div>
-                      
+
                       <div className="text-center">
                         <span className="text-primary font-medium bg-primary/10 px-3 py-2 rounded-full text-sm">
                           {item.pragmo}
                         </span>
                       </div>
-                      
+
                       <div className="text-center">
                         <span className="text-green-600 font-bold bg-green-50 px-3 py-2 rounded-full text-sm">
                           {item.improvement}
@@ -156,7 +154,7 @@ const WhyChoosePRAGMO: React.FC = () => {
             {/* Mobile Card View */}
             <div className="block md:hidden space-y-3">
               {comparisons.map((item, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-white rounded-xl shadow-lg p-3 border-l-4 border-primary"
                 >
@@ -176,14 +174,14 @@ const WhyChoosePRAGMO: React.FC = () => {
                         {item.traditional}
                       </span>
                     </div>
-                    
+
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600 text-sm font-medium">PRAGMO:</span>
                       <span className="text-primary font-medium bg-primary/10 px-2 py-1 rounded text-xs">
                         {item.pragmo}
                       </span>
                     </div>
-                    
+
                     <div className="flex justify-between items-center pt-2 border-t border-gray-100">
                       <span className="text-gray-600 text-sm font-medium">Mejora:</span>
                       <span className="text-green-600 font-bold bg-green-50 px-2 py-1 rounded text-xs">
@@ -219,10 +217,10 @@ const WhyChoosePRAGMO: React.FC = () => {
                   <h3 className="text-2xl font-bold text-primary-dark">Nuestra Misión</h3>
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Empoderar a las empresas latinoamericanas con soluciones digitales integrales 
-                  que transforman procesos operativos en ventajas competitivas. A través de nuestra 
-                  plataforma inteligente y servicios especializados, democratizamos la innovación 
-                  tecnológica para organizaciones de cualquier sector y tamaño, haciendo que la 
+                  Empoderar a las empresas latinoamericanas con soluciones digitales integrales
+                  que transforman procesos operativos en ventajas competitivas. A través de nuestra
+                  plataforma inteligente y servicios especializados, democratizamos la innovación
+                  tecnológica para organizaciones de cualquier sector y tamaño, haciendo que la
                   excelencia operativa sea accesible para todos.
                 </p>
               </div>
@@ -233,10 +231,10 @@ const WhyChoosePRAGMO: React.FC = () => {
                   <h3 className="text-2xl font-bold text-primary-dark">Nuestra Visión</h3>
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Ser el ecosistema de soluciones digitales más confiable de Latinoamérica, 
-                  reconocido por revolucionar la gestión empresarial mediante tecnología 
-                  inteligente, adaptable y humanizada. Aspiramos a crear un futuro donde cada 
-                  organización, sin importar su complejidad, pueda operar con máxima eficiencia 
+                  Ser el ecosistema de soluciones digitales más confiable de Latinoamérica,
+                  reconocido por revolucionar la gestión empresarial mediante tecnología
+                  inteligente, adaptable y humanizada. Aspiramos a crear un futuro donde cada
+                  organización, sin importar su complejidad, pueda operar con máxima eficiencia
                   y transparencia a través de nuestras innovaciones.
                 </p>
               </div>
@@ -254,7 +252,7 @@ const WhyChoosePRAGMO: React.FC = () => {
               Únete a las empresas líderes que ya digitalizaron sus procesos operativos
             </p>
             <div className="flex flex-col gap-3 sm:gap-4 justify-center">
-              <button 
+              <button
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   if (contactSection) {
@@ -265,7 +263,7 @@ const WhyChoosePRAGMO: React.FC = () => {
               >
                 Ver Demo Gratuito
               </button>
-              <button 
+              <button
                 onClick={() => {
                   window.open('https://wa.me/51983113140?text=Hola,%20me%20gustaría%20hablar%20con%20un%20experto%20sobre%20PRAGMO%20para%20mi%20empresa', '_blank');
                 }}

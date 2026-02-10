@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>PRAGMO | Digitalización de Procesos</title>
-    
-    <!-- Google Fonts: Inter -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>PRAGMO | Digitalización de Procesos Operativos</title>
+    <meta name="description"
+        content="PRAGMO digitaliza tus procesos operativos con inspecciones digitales, reportes inteligentes e IA. Soluciones para minería, construcción y manufactura.">
+
+    <!-- Google Fonts: Inter + Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <script type="importmap">
     {
       "imports": {
@@ -24,73 +29,151 @@
     </script>
 
     <script>
-      // Custom Tailwind theme configuration
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'primary': {
-                DEFAULT: '#0061A1', // Azul medio
-                light: '#007BC0',   // Azul claro
-                dark: '#0B3958',    // Azul oscuro
-              },
-              'secondary': {
-                DEFAULT: '#00C4C4', // Cian/Aqua
-                dark: '#00A0A0',    // Cian oscuro para hover
-              },
-              'background': '#FFFFFF', // Fondo principal blanco
-              'surface': '#F8FAFC',    // Fondo para secciones (slate-50)
-              'subtle': '#475569',     // Texto secundario (slate-600)
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-          }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': {
+                            DEFAULT: '#00d4ff',
+                            light: '#38e8ff',
+                            dark: '#0a0f1a',
+                        },
+                        'secondary': {
+                            DEFAULT: '#00ffa3',
+                            dark: '#00cc82',
+                        },
+                        'surface': {
+                            DEFAULT: '#111827',
+                            light: '#1a2332',
+                            dark: '#060a12',
+                        },
+                        'background': '#0a0f1a',
+                        'subtle': '#94a3b8',
+                        'glow': {
+                            cyan: '#00d4ff',
+                            green: '#00ffa3',
+                            blue: '#3b82f6',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'glow-pulse': 'glow-pulse 2s ease-in-out infinite alternate',
+                        'gradient-shift': 'gradient-shift 8s ease infinite',
+                        'slide-up': 'slide-up 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'scale-in': 'scaleIn 0.3s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                        'spin-slow': 'spin-slow 20s linear infinite',
+                        'spin-reverse': 'spin-reverse 15s linear infinite',
+                    },
+                    keyframes: {
+                        'glow-pulse': {
+                            from: { boxShadow: '0 0 20px rgba(0,212,255,0.3), 0 0 40px rgba(0,212,255,0.1)' },
+                            to: { boxShadow: '0 0 30px rgba(0,212,255,0.5), 0 0 60px rgba(0,212,255,0.2)' },
+                        },
+                        'gradient-shift': {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        'slide-up': {
+                            from: { opacity: '0', transform: 'translateY(30px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(0,212,255,0.3)',
+                        'glow-lg': '0 0 40px rgba(0,212,255,0.4), 0 0 80px rgba(0,212,255,0.1)',
+                        'glow-green': '0 0 20px rgba(0,255,163,0.3)',
+                    },
+                }
+            }
         }
-      }
     </script>
-    
+
     <style>
         html {
             scroll-behavior: smooth;
-            font-size: 140%;
         }
+
         body {
-            background-color: #FFFFFF;
+            background-color: #0a0f1a;
             font-family: 'Inter', sans-serif;
-            color: #0B3958;
+            color: #e2e8f0;
             overflow-x: hidden;
         }
+
+        /* Glass card utility */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff 0%, #00ffa3 50%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
+        }
+
+        /* Glow border */
+        .glow-border {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), inset 0 0 20px rgba(0, 212, 255, 0.05);
+        }
+
+        /* Grid background pattern */
+        .grid-bg {
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(0, 212, 255, 0.08) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        /* Phone mockup */
         .phone-mockup {
-            width: 10rem; /* Reduced for mobile */
-            /* height: 24rem; --- REMOVED to allow aspect-ratio to control height */
-            background: #1a1a1a;
-            border-radius: 1.6rem; /* Was 2.2rem */
-            padding: 0.3rem; /* Was 0.5rem */
-            box-shadow: 0 0.8rem 1.5rem -0.4rem rgba(0, 0, 0, 0.4), inset 0 0 0 0.1rem rgba(255, 255, 255, 0.05); /* Adjusted shadow */
+            width: 13rem;
+            background: #1a1a2e;
+            border-radius: 2rem;
+            padding: 0.4rem;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 212, 255, 0.1), inset 0 0 0 1px rgba(0, 212, 255, 0.2);
             margin: 0 auto;
             position: relative;
         }
+
         @media (min-width: 640px) {
             .phone-mockup {
-                width: 12rem;
-                border-radius: 1.8rem;
-                padding: 0.4rem;
+                width: 15.6rem;
+                border-radius: 2.3rem;
+                padding: 0.5rem;
             }
         }
+
         .phone-screen {
             background: #000;
             width: 100%;
-            aspect-ratio: 9 / 19.5; /* Simulates a modern phone screen, like iPhone X/11/12/13 */
-            border-radius: 1.2rem; /* Reduced for mobile */
+            aspect-ratio: 9 / 19.5;
+            border-radius: 1.6rem;
             overflow: hidden;
             position: relative;
         }
+
         @media (min-width: 640px) {
             .phone-screen {
-                border-radius: 1.4rem;
+                border-radius: 1.8rem;
             }
         }
+
         .phone-screen iframe {
             position: absolute;
             top: 0;
@@ -98,8 +181,9 @@
             width: 100%;
             height: 100%;
             border: 0;
-            transform: scale(1.1); /* Zoom in to fill screen and hide letterboxing */
+            transform: scale(1.1);
         }
+
         .phone-camera {
             position: absolute;
             top: 0.75rem;
@@ -110,47 +194,106 @@
             background-color: #111;
             border-radius: 50%;
             z-index: 20;
-            border: 1px solid #333;
+            border: 1px solid rgba(0, 212, 255, 0.3);
         }
-        /* Animation for sections */
+
+        /* Animations */
         .fade-in-section {
             opacity: 0;
-            transform: translateY(1.25rem); /* 20px */
+            transform: translateY(1.25rem);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
         .fade-in-section.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(0.625rem); } /* 10px */
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(0.625rem);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
+
         @keyframes scaleIn {
-            from { 
-                opacity: 0; 
+            from {
+                opacity: 0;
                 transform: scale(0.9) translateY(-20px);
             }
-            to { 
-                opacity: 1; 
+
+            to {
+                opacity: 1;
                 transform: scale(1) translateY(0);
             }
         }
-        .animate-scale-in {
-            animation: scaleIn 0.3s ease-out forwards;
+
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
+
+        @keyframes spin-reverse {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes gradient-shift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
         .text-shadow-sm {
-            text-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.3); /* 1px 3px */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Neon line */
+        .neon-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
         }
     </style>
-<link rel="stylesheet" href="/index.css">
-<link rel="stylesheet" href="/mobile-fixes.css">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/mobile-fixes.css">
 </head>
+
 <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

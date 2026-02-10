@@ -60,7 +60,7 @@ const ServicesUseCases: React.FC = () => {
     },
     {
       name: "Construcción",
-      icon: "🏗️", 
+      icon: "🏗️",
       color: "from-blue-500 to-cyan-600",
       description: "Control total en obras desde cimentación hasta entrega",
       cases: [
@@ -83,7 +83,7 @@ const ServicesUseCases: React.FC = () => {
     {
       name: "Manufactura e Industria",
       icon: "🏭",
-      color: "from-purple-500 to-pink-600", 
+      color: "from-purple-500 to-pink-600",
       description: "Control de procesos y mantenimiento en plantas industriales",
       cases: [
         {
@@ -114,8 +114,8 @@ const ServicesUseCases: React.FC = () => {
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-dark mt-2 sm:mt-3 mb-3 sm:mb-4 leading-tight">
             Soluciones Completas para tu <span className="text-primary">Industria</span>
           </h2>
-          <p className="text-sm sm:text-base text-text-secondary max-w-3xl mx-auto">
-            Desde servicios básicos hasta casos específicos de implementación real. 
+          <p className="text-sm sm:text-base text-gray-900 max-w-3xl mx-auto">
+            Desde servicios básicos hasta casos específicos de implementación real.
             Descubre cómo PRAGMO se adapta perfectamente a tu sector.
           </p>
         </div>
@@ -123,17 +123,16 @@ const ServicesUseCases: React.FC = () => {
         {/* Services Overview */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10 px-4">
           {services.map((service, index) => (
-            <div 
+            <div
               key={index}
-              className={`bg-white rounded-xl p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border-2 ${
-                activeService === index ? 'border-primary' : 'border-transparent hover:border-primary/30'
-              }`}
+              className={`bg-white rounded-xl p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border-2 ${activeService === index ? 'border-primary' : 'border-transparent hover:border-primary/30'
+                }`}
               onClick={() => setActiveService(index)}
             >
               <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">{service.icon}</div>
               <h3 className="text-base sm:text-lg font-bold text-primary-dark mb-2">{service.title}</h3>
               <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">{service.description}</p>
-              
+
               <div className="space-y-1 mb-3">
                 {service.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-1 text-xs text-gray-500">
@@ -168,15 +167,14 @@ const ServicesUseCases: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setActiveIndustry(index)}
-                className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-3 font-semibold transition-all duration-300 text-xs sm:text-sm whitespace-nowrap ${
-                  activeIndustry === index
+                className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-3 font-semibold transition-all duration-300 text-xs sm:text-sm whitespace-nowrap ${activeIndustry === index
                     ? 'bg-primary text-white border-b-2 border-primary-dark'
                     : 'text-gray-600 hover:bg-gray-100'
-                }`}
+                  }`}
               >
-              <span className="text-sm sm:text-base">{industry.icon}</span>
-              <span className="text-xs sm:text-sm">{industry.name.split(' ')[0]}</span>
-              <span className="hidden md:inline text-xs">{industry.name}</span>
+                <span className="text-sm sm:text-base">{industry.icon}</span>
+                <span className="text-xs sm:text-sm">{industry.name.split(' ')[0]}</span>
+                <span className="hidden md:inline text-xs">{industry.name}</span>
               </button>
             ))}
           </div>
@@ -200,22 +198,22 @@ const ServicesUseCases: React.FC = () => {
                   <h5 className="text-sm sm:text-base font-bold text-primary-dark mb-2">
                     {useCase.title}
                   </h5>
-                  
+
                   <div className="space-y-1 sm:space-y-2">
                     <div>
                       <span className="text-xs font-semibold text-red-700 block mb-0.5">🚨 DESAFÍO:</span>
                       <p className="text-gray-600 text-xs leading-relaxed">{useCase.challenge}</p>
                     </div>
-                    
+
                     <div>
                       <span className="text-xs font-semibold text-blue-700 block mb-0.5">⚡ SOLUCIÓN:</span>
                       <p className="text-gray-600 text-xs leading-relaxed">{useCase.solution}</p>
                     </div>
-                    
+
                     <div className="bg-green-50 border border-green-200 rounded-lg p-2">
                       <span className="text-xs font-semibold text-green-800 block mb-1">✅ RESULTADO:</span>
                       <p className="text-green-700 font-bold text-xs mb-2 leading-relaxed">{useCase.result}</p>
-                      
+
                       <div className="grid grid-cols-3 gap-1">
                         {Object.entries(useCase.metrics).map(([key, value]) => (
                           <div key={key} className="text-center bg-white rounded px-1 py-1">
@@ -242,7 +240,7 @@ const ServicesUseCases: React.FC = () => {
               Tenemos experiencia en múltiples sectores empresariales. Conversemos sobre tu caso específico.
             </p>
             <div className="flex flex-col gap-3 sm:gap-4 justify-center">
-              <button 
+              <button
                 onClick={() => {
                   window.open('https://wa.me/51983113140?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20los%20casos%20de%20uso%20de%20PRAGMO%20para%20mi%20industria', '_blank');
                 }}
@@ -250,7 +248,7 @@ const ServicesUseCases: React.FC = () => {
               >
                 Ver Caso de Mi Industria
               </button>
-              <button 
+              <button
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   if (contactSection) {

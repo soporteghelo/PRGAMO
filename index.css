@@ -1,14 +1,12 @@
-/* Additional custom styles for PRGAMO app */
-/* Note: Main styles are handled by Tailwind CSS CDN and inline styles in index.html */
+/* PRAGMO - Modern Dark Theme Styles */
 
-/* Line clamp utility for text truncation */
+/* Line clamp utilities */
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -16,263 +14,80 @@
   overflow: hidden;
 }
 
-/* Smooth transitions for carousel */
+/* Custom scrollbar - Dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0f1a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,212,255,0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,212,255,0.5);
+}
+
+/* Carousel transitions */
 .carousel-enter {
   opacity: 0;
   transform: translateX(100px) scale(0.95);
 }
-
 .carousel-enter-active {
   opacity: 1;
   transform: translateX(0) scale(1);
   transition: all 300ms ease-out;
 }
-
 .carousel-exit {
   opacity: 1;
   transform: translateX(0) scale(1);
 }
-
 .carousel-exit-active {
   opacity: 0;
   transform: translateX(-100px) scale(0.95);
   transition: all 300ms ease-in;
 }
 
-/* Smooth scrolling for the entire app */
-html {
-  scroll-behavior: smooth;
-}
+/* Animate utilities */
+.animate-spin-slow { animation: spin-slow 20s linear infinite; }
+.animate-spin-reverse { animation: spin-reverse 15s linear infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
 
-/* Custom scrollbar for webkit browsers */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1e293b;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #3b82f6;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
-}
-
-/* Animaciones personalizadas para el Hero */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin-reverse {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
-
-.animate-spin-reverse {
-  animation: spin-reverse 15s linear infinite;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Responsividad mejorada */
-@media (max-width: 640px) {
-  .phone-mockup {
-    transform: scale(1.6) !important;
-  }
-  
-  .phone-screen {
-    min-height: 400px;
-  }
-  
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .phone-mockup {
-    transform: scale(0.75);
-  }
-  
-  .phone-screen {
-    min-height: 250px;
-  }
-}
-
-/* Mejorar legibilidad en móviles */
-@media (max-width: 768px) {
-  h1, h2, h3 {
-    line-height: 1.2;
-  }
-  
-  p {
-    line-height: 1.5;
-  }
-  
-  .text-shadow-sm {
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  }
-}
-
-/* Breakpoint extra pequeño para compatibilidad */
-@media (max-width: 375px) {
-  .text-xs {
-    font-size: 0.7rem;
-  }
-  
-  .px-2 {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-  
-  .container {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-  
-  /* Reducir padding en tarjetas */
-  .bg-gradient-to-br {
-    padding: 0.75rem !important;
-  }
-}
-
-/* Additional mobile stability fixes */
-@media (max-width: 640px) {
-  /* Prevent text overflow */
-  .line-clamp-2,
-  .line-clamp-3 {
-    word-break: break-word;
-  }
-  
-  /* Ensure buttons don't overflow */
-  .flex.space-x-4 {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
-  /* Better spacing for mobile */
-  .gap-4 {
-    gap: 0.75rem;
-  }
-  
-  .gap-6 {
-    gap: 1rem;
-  }
-  
-  /* Constrain absolute positioned elements */
-  .absolute {
-    max-width: calc(100vw - 2rem);
-  }
-}
-
-/* Estilos para sliders mejorados */
+/* Slider styles - Dark theme */
 .slider::-webkit-slider-thumb {
   appearance: none;
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #3b82f6;
+  background: #00d4ff;
   cursor: pointer;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border: 2px solid #0a0f1a;
+  box-shadow: 0 0 10px rgba(0,212,255,0.5);
 }
-
 .slider::-moz-range-thumb {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #3b82f6;
+  background: #00d4ff;
   cursor: pointer;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border: 2px solid #0a0f1a;
+  box-shadow: 0 0 10px rgba(0,212,255,0.5);
 }
 
-/* Mejoras para touch en móviles */
-@media (max-width: 768px) {
-  .slider::-webkit-slider-thumb {
-    height: 24px;
-    width: 24px;
-  }
-  
-  .slider::-moz-range-thumb {
-    height: 24px;
-    width: 24px;
-  }
-  
-  button, .cursor-pointer {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Evitar overflow horizontal */
-  .grid {
-    gap: 0.5rem;
-  }
-  
-  /* Ajustar spacing */
-  .space-x-4 > * + * {
-    margin-left: 0.5rem;
-  }
-  
-  .space-x-6 > * + * {
-    margin-left: 0.75rem;
-  }
-  
-  /* Mejorar legibilidad */
-  .text-3xl {
-    font-size: 1.5rem;
-    line-height: 1.3;
-  }
-  
-  .text-4xl {
-    font-size: 1.75rem;
-    line-height: 1.2;
-  }
-}
-
-/* Fixes específicos para Hero en mobile */
+/* Mobile responsive */
 @media (max-width: 640px) {
-  /* Asegurar visibilidad del phone mockup */
   .phone-mockup {
     transform: scale(0.8) !important;
     z-index: 10 !important;
   }
-  
-  /* Asegurar que videos e iframes se vean correctamente */
   .phone-screen {
+    min-height: 250px;
     overflow: hidden !important;
     border-radius: 20px !important;
   }
-  
   .phone-screen iframe,
   .phone-screen video,
   .phone-screen img {
@@ -281,19 +96,26 @@ html {
     object-fit: cover !important;
     border-radius: 20px !important;
   }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .line-clamp-2, .line-clamp-3 {
+    word-break: break-word;
+  }
+  .flex.space-x-4 {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .gap-4 { gap: 0.75rem; }
+  .gap-6 { gap: 1rem; }
   
-  /* Botones de navegación más visibles en mobile */
   #hero button[aria-label="Anterior"],
   #hero button[aria-label="Siguiente"] {
     min-height: 48px !important;
     min-width: 48px !important;
     z-index: 100 !important;
-    background: rgba(255, 255, 255, 0.98) !important;
-    backdrop-filter: blur(10px) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
   }
-  
-  /* Asegurar que el contenedor tenga altura suficiente */
   #hero .container {
     min-height: 400px !important;
     position: relative !important;
@@ -304,12 +126,25 @@ html {
   .phone-mockup {
     transform: scale(0.7) !important;
   }
-  
   #hero button[aria-label="Anterior"] {
     left: 0.75rem !important;
   }
-  
   #hero button[aria-label="Siguiente"] {
     right: 0.75rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  h1, h2, h3 { line-height: 1.2; }
+  p { line-height: 1.5; }
+  .slider::-webkit-slider-thumb { height: 24px; width: 24px; }
+  .slider::-moz-range-thumb { height: 24px; width: 24px; }
+  button, .cursor-pointer { min-height: 44px; min-width: 44px; }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }

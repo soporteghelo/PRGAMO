@@ -64,7 +64,7 @@ const Testimonials: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-primary-dark mt-2 mb-4">
             Lo que Dicen Nuestros <span className="text-primary">Clientes</span>
           </h2>
-          <p className="text-base text-text-secondary max-w-2xl mx-auto">
+          <p className="text-base text-gray-900 max-w-2xl mx-auto">
             Empresas líderes han transformado su gestión de seguridad con PRAGMO.
           </p>
         </div>
@@ -130,7 +130,7 @@ const Testimonials: React.FC = () => {
                 <div className="mb-3">
                   <span className="text-2xl text-primary/20 font-serif">"</span>
                 </div>
-                
+
                 <blockquote className="text-sm text-gray-700 leading-relaxed">
                   {testimonials[activeTestimonial].quote}
                 </blockquote>
@@ -145,11 +145,10 @@ const Testimonials: React.FC = () => {
             <button
               key={index}
               onClick={() => setActiveTestimonial(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                activeTestimonial === index
+              className={`w-3 h-3 rounded-full transition-colors ${activeTestimonial === index
                   ? 'bg-primary'
                   : 'bg-gray-300 hover:bg-gray-400'
-              }`}
+                }`}
             />
           ))}
         </div>
